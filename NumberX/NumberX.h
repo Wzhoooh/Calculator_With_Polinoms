@@ -18,7 +18,7 @@ public:
     NumberX(const NumberX&);
     NumberX(const vect_l_d&);
     int getNumArguments() const;
-    vect_l_d getValue();
+    const Node* getValue();
 
     vect_l_d getCopy() const; /// copies coefficients
 };

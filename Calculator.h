@@ -25,9 +25,8 @@ class BinaryMul; // : public BinaryOperation
 class BinaryDiv; // : public BinaryOperation
 class BinaryPow; // : public BinaryOperation
 
-typedef list < Node* > list_node;
-
 #include "Exceptions/Exceptions.h"
+#include "NumberX/NumberX.h"
 #include "Operations/Operations.h"
 #include "Parser/Parser.h"
 
@@ -38,7 +37,7 @@ private:
 
 public:
     Calculator() = delete;
-    Calculator(list_node& expression);
+    Calculator(list_node& expression); /// pulled by Parser
 
     void reverseToBackNotation();
     Node getResult();
@@ -47,9 +46,9 @@ public:
 class Node
 {
 public:
-    virtual vect_l_d getValue() = 0; /// value of NumberX
-    virtual Node getValue(Node*) = 0; /// unary operation
-    virtual Node getValue(Node*, Node*) = 0; /// binary operation
+    virtual const Node* getValue() = 0; /// value of NumberX
+    virtual const Node* getValue(Node*) = 0; /// unary operation
+    virtual const Node* getValue(Node*, Node*) = 0; /// binary operation
     virtual int getNumArguments() = 0;
 };
 
