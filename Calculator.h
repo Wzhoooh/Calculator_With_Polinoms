@@ -12,13 +12,13 @@ class Parser;
 
 class Node; /// interface
 
-class Polinom;
+class Polinom; // : public Node
 
-class UnaryOperation; // : public Calculator
+class UnaryOperation; // : public Node
 class UnaryPlus;  // : public unaryOperation
 class UnaryMinus; // : public unaryOperation
 
-class BinaryOperation; // : public Calculator
+class BinaryOperation; // : public Node
 class BinaryAdd; // : public BinaryOperation
 class BinarySub; // : public BinaryOperation
 class BinaryMul; // : public BinaryOperation
@@ -29,9 +29,9 @@ class BinaryPow; // : public BinaryOperation
 class Node
 {
 public:
-    virtual const Node* getValue() = 0; /// value of NumberX
-    virtual const Node* getValue(Node*) = 0; /// unary operation
-    virtual const Node* getValue(Node*, Node*) = 0; /// binary operation
+    virtual vector < long double > getValue() = 0; /// value of Polinom
+    virtual vector < long double > getValue(Node*) = 0; /// unary operation
+    virtual vector < long double > getValue(Node*, Node*) = 0; /// binary operation
     virtual int getNumArguments() = 0;
 };
 

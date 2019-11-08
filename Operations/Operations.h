@@ -11,7 +11,7 @@ private:
 
 public:
     UnaryPlus() = default;
-    const Node* getValue(Node* Number);
+    vector < long double > getValue(Node* Number);
     int getNumArguments() const;
 };
 
@@ -21,7 +21,7 @@ private:
     const int numArguments{1};
 public:
     UnaryMinus() = default;
-    const Node* getValue(Node* Number);
+    vector < long double > getValue(Node* Number);
     int getNumArguments() const;
 };
 
@@ -36,7 +36,7 @@ private:
     const int numArguments{2};
 public:
     BinaryAdd() = default;
-    const Node* getValue(Node* NumberFirst, Node* NumberSecond);
+    vector < long double > getValue(Node* NumberFirst, Node* NumberSecond);
     int getNumArguments() const;
 };
 
@@ -46,7 +46,7 @@ private:
     const int numArguments{2};
 public:
     BinarySub() = default;
-    const Node* getValue(Node* NumberFirst, Node* NumberSecond);
+    vector < long double > getValue(Node* NumberFirst, Node* NumberSecond);
     int getNumArguments() const;
 };
 
@@ -56,7 +56,7 @@ private:
     const int numArguments{2};
 public:
     BinaryMul() = default;
-    const Node* getValue(Node* NumberFirst, Node* NumberSecond);
+    vector < long double > getValue(Node* NumberFirst, Node* NumberSecond);
     int getNumArguments() const;
 };
 
@@ -66,7 +66,7 @@ private:
     const int numArguments{2};
 public:
     BinaryDiv() = default;
-    const Node* getValue(Node* NumberFirst, Node* NumberSecond);
+    vector < long double > getValue(Node* NumberFirst, Node* NumberSecond);
     int getNumArguments() const;
 };
 
@@ -76,7 +76,7 @@ private:
     const int numArguments{2};
 public:
     BinaryPow() = default;
-    const Node* getValue(Node* NumberFirst, Node* NumberSecond);
+    vector < long double > getValue(Node* NumberFirst, Node* NumberSecond);
     int getNumArguments() const;
 };
 

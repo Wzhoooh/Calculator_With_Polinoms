@@ -15,9 +15,9 @@ public:
     Polinom(const Polinom&);
     Polinom(const vector < long double >&);
     int getNumArguments() const;
-    const Node* getValue();
+    vector < long double > getValue();
 
-    vector < long double > getCoefficients() const; /// copies coefficients
+    //vector < long double > getCoefficients() const; /// copies coefficients
 };
 
 #endif // POLINOM_H_INCLUDED

@@ -1,2 +1,2 @@
-#include "Polinom.h"
+//#include "Polinom.h"
 
