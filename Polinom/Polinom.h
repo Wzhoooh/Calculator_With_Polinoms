@@ -7,15 +7,14 @@ using std::vector;
 class Polinom: public Node
 {
 private:
-    int numArguments{0};
     vector < long double > coefficients;
 
 public:
-    Polinom();
+    Polinom() = delete;
     Polinom(const Polinom&);
     Polinom(const vector < long double >&);
     int getNumArguments() const;
-    vector < long double > getValue();
+    Node* getValue();
 
     //vector < long double > getCoefficients() const; /// copies coefficients
 };
