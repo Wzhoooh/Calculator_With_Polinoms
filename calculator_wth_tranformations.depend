@@ -1,8 +1,9 @@
 # depslib dependency file v1.0
 1573143291 source:c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\calculator_methods.cpp
 
-1514140574 source:c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\main.cpp
+1573227625 source:c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\main.cpp
 	<iostream>
+	"Calculator.h"
 
 1573147492 source:c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\numberx\numberx_methods.cpp
 
@@ -10,5 +11,45 @@
 
 1573146674 source:c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\parser\parser_methods.cpp
 
-1573147492 source:c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\polinom\polinom_methods.cpp
+1573228015 source:c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\polinom\polinom_methods.cpp
+	"Polinom.h"
+
+1573228721 c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\calculator.h
+	<vector>
+	<list>
+	"Exceptions/Exceptions.h"
+	"Polinom/Polinom.h"
+	"Operations/Operations.h"
+	"Parser/Parser.h"
+
+1573226775 c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\exceptions\exceptions.h
+
+1573228880 c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\polinom\polinom.h
+	<vector>
+
+1573228880 c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\operations\operations.h
+
+1573227558 c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\parser\parser.h
+	<string>
+	<list>
+
+1573228015 c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\/\calculator.h
+	<vector>
+	<list>
+	"Exceptions/Exceptions.h"
+	"Polinom/Polinom.h"
+	"Operations/Operations.h"
+	"Parser/Parser.h"
+
+1573226775 c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\\\exceptions\exceptions.h
+
+1573228336 c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\\\polinom\polinom.h
+	"/Calculator.h"
+	<vector>
+
+1573227835 c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\\\operations\operations.h
+
+1573227558 c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\\\parser\parser.h
+	<string>
+	<list>
 

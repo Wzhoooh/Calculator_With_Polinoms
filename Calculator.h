@@ -12,7 +12,7 @@ class Parser;
 
 class Node; /// interface
 
-class NumberX;
+class Polinom;
 
 class UnaryOperation; // : public Calculator
 class UnaryPlus;  // : public unaryOperation
@@ -25,23 +25,6 @@ class BinaryMul; // : public BinaryOperation
 class BinaryDiv; // : public BinaryOperation
 class BinaryPow; // : public BinaryOperation
 
-#include "Exceptions/Exceptions.h"
-#include "Polinom/Polinom.h"
-#include "Operations/Operations.h"
-#include "Parser/Parser.h"
-
-class Calculator
-{
-private:
-    list_node expression;
-
-public:
-    Calculator() = delete;
-    Calculator(list_node& expression); /// pulled by Parser
-
-    void reverseToBackNotation();
-    Node getResult();
-};
 
 class Node
 {
@@ -51,6 +34,27 @@ public:
     virtual const Node* getValue(Node*, Node*) = 0; /// binary operation
     virtual int getNumArguments() = 0;
 };
+
+#include "Exceptions/Exceptions.h"
+#include "Polinom/Polinom.h"
+#include "Operations/Operations.h"
+#include "Parser/Parser.h"
+
+class Calculator
+{
+private:
+    list < Node* > expression;
+
+    void reverseToBackNotation();
+
+public:
+    Calculator() = delete;
+    Calculator(list < Node* >& expression); /// pulled by Parser
+
+    Node* getResult();
+};
+
+
 
 
 #endif // CALCULATOR_H_INCLUDED

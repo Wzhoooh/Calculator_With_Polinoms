@@ -4,7 +4,7 @@
 class UnaryOperation: public Node
 {};
 
-class UnaryPlus: public unaryOperation
+class UnaryPlus: public UnaryOperation
 {
 private:
     const int numArguments{1};
@@ -15,7 +15,7 @@ public:
     int getNumArguments() const;
 };
 
-class UnaryMinus: public unaryOperation
+class UnaryMinus: public UnaryOperation
 {
 private:
     const int numArguments{1};
