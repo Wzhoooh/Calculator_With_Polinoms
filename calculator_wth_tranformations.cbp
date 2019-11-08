@@ -34,9 +34,13 @@
 		</Compiler>
 		<Unit filename="Calculator.h" />
 		<Unit filename="Calculator_methods.cpp" />
-		<Unit filename="Exceptions.h" />
-		<Unit filename="Operations.h" />
-		<Unit filename="Operations_methods.cpp" />
+		<Unit filename="Exceptions/Exceptions.h" />
+		<Unit filename="Operations/Operations.h" />
+		<Unit filename="Operations/Operations_methods.cpp" />
+		<Unit filename="Parser/Parser.h" />
+		<Unit filename="Parser/Parser_methods.cpp" />
+		<Unit filename="Polinom/Polinom.h" />
+		<Unit filename="Polinom/Polinom_methods.cpp" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />

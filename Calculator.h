@@ -26,7 +26,7 @@ class BinaryDiv; // : public BinaryOperation
 class BinaryPow; // : public BinaryOperation
 
 #include "Exceptions/Exceptions.h"
-#include "NumberX/NumberX.h"
+#include "Polinom/Polinom.h"
 #include "Operations/Operations.h"
 #include "Parser/Parser.h"
 
