@@ -4,7 +4,7 @@
 #include <vector>
 using std::vector;
 
-class Polinom: public Node
+class Polinom: public NodeZeroArguments
 {
 private:
     vector < long double > coefficients;

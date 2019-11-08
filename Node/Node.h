@@ -7,10 +7,26 @@ using std::vector;
 class Node
 {
 public:
-    virtual Node* getValue(); /// value of Polinom
-    virtual Node* getValue(Node*); /// unary operation
-    virtual Node* getValue(Node*, Node*); /// binary operation
-    virtual int getNumArguments();
+    virtual int getNumArguments() = 0;
+};
+
+
+class NodeZeroArguments
+{
+public:
+    virtual Node* getValue() = 0; /// value of Polinom
+};
+
+class NodeOneArgument
+{
+public:
+    virtual Node* getValue(Node*) = 0; /// unary operation
+};
+
+class NodeTwoArguments
+{
+public:
+    virtual Node* getValue(Node*, Node*) = 0; /// binary operation
 };
 
 

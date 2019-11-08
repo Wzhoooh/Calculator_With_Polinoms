@@ -36,7 +36,6 @@
 		<Unit filename="Calculator_methods.cpp" />
 		<Unit filename="Exceptions/Exceptions.h" />
 		<Unit filename="Node/Node.h" />
-		<Unit filename="Node/Node_methods.cpp" />
 		<Unit filename="Operations/Operations.h" />
 		<Unit filename="Operations/Operations_methods.cpp" />
 		<Unit filename="Parser/Parser.h" />

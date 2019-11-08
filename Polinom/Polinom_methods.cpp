@@ -8,7 +8,7 @@ Polinom::Polinom(const Polinom& source)
 
 Polinom::Polinom(const vector < long double >& coefficients)
 {
-
+    this->coefficients = coefficients;
 }
 
 int Polinom::getNumArguments() const
@@ -16,4 +16,7 @@ int Polinom::getNumArguments() const
     return 0;
 }
 
-Node* getValue();
+Node* Polinom::getValue()
+{
+    return (Node*)new Polinom(*this);
+}

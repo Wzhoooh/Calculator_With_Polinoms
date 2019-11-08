@@ -1,7 +1,7 @@
 #ifndef OPERATIONS_H_INCLUDED
 #define OPERATIONS_H_INCLUDED
 
-class UnaryPlus: public Node
+class UnaryPlus: public NodeOneArgument
 {
 private:
     const int numArguments{1};
@@ -12,7 +12,7 @@ public:
     int getNumArguments() const;
 };
 
-class UnaryMinus: public Node
+class UnaryMinus: public NodeOneArgument
 {
 private:
     const int numArguments{1};
@@ -24,7 +24,7 @@ public:
 
 
 
-class BinaryAdd: public Node
+class BinaryAdd: public NodeTwoArguments
 {
 private:
     const int numArguments{2};
@@ -34,7 +34,7 @@ public:
     int getNumArguments() const;
 };
 
-class BinarySub: public Node
+class BinarySub: public NodeTwoArguments
 {
 private:
     const int numArguments{2};
@@ -44,7 +44,7 @@ public:
     int getNumArguments() const;
 };
 
-class BinaryMul: public Node
+class BinaryMul: public NodeTwoArguments
 {
 private:
     const int numArguments{2};
@@ -54,7 +54,7 @@ public:
     int getNumArguments() const;
 };
 
-class BinaryDiv: public Node
+class BinaryDiv: public NodeTwoArguments
 {
 private:
     const int numArguments{2};
@@ -64,7 +64,7 @@ public:
     int getNumArguments() const;
 };
 
-class BinaryPow: public Node
+class BinaryPow: public NodeTwoArguments
 {
 private:
     const int numArguments{2};

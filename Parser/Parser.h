@@ -15,7 +15,7 @@ private:
 
 public:
     Parser() = delete;
-    Parser(const string& inputStr);
+    Parser(const string& inputStr) throw(/**/);
     list < Node* > getExression() const;
 };
 
