@@ -10,13 +10,13 @@ using std::list;
 class Parser
 {
 private:
-    list < Node* > expression;
+    list < Node > expression;
     string strExpression;
 
 public:
     Parser() = delete;
     Parser(const string& inputStr) throw(/**/);
-    list < Node* > getExression() const;
+    list < Node& > getExression() const;
 };
 
 #endif // PARSER_H_INCLUDED

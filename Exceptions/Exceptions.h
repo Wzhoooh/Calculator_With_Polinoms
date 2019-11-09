@@ -33,7 +33,7 @@ public:
 class Too_Big_Degree_Of_X: public exception
 {
 public:
-    const char* what() const throw() { return ""; }
+    const char* what() const throw() { return "too big degree"; }
 };
 
 class Invalid_Degree_Of_X: public exception

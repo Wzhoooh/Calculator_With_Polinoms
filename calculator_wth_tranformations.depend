@@ -1,23 +1,24 @@
 # depslib dependency file v1.0
 1573143291 source:c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\calculator_methods.cpp
 
-1573319880 source:c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\main.cpp
+1573335601 source:c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\main.cpp
 	<iostream>
 	<climits>
 	"Calculator.h"
 
 1573147492 source:c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\numberx\numberx_methods.cpp
 
-1573319912 source:c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\operations\operations_methods.cpp
+1573334151 source:c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\operations\operations_methods.cpp
 	"Operations.h"
 	<iostream>
+	<cstdlib>
 
 1573146674 source:c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\parser\parser_methods.cpp
 
-1573290959 source:c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\polinom\polinom_methods.cpp
+1573335419 source:c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\polinom\polinom_methods.cpp
 	"Polinom.h"
 
-1573286320 c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\calculator.h
+1573321843 c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\calculator.h
 	<vector>
 	<list>
 	"Node/Node.h"
@@ -26,19 +27,19 @@
 	"Operations/Operations.h"
 	"Parser/Parser.h"
 
-1573315487 c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\exceptions\exceptions.h
+1573325023 c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\exceptions\exceptions.h
 	<exception>
 
-1573290959 c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\polinom\polinom.h
+1573335845 c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\polinom\polinom.h
 	"../Node/Node.h"
 	<map>
 	<utility>
 
-1573294634 c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\operations\operations.h
+1573329732 c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\operations\operations.h
 	"../Polinom/Polinom.h"
 	"../Exceptions/Exceptions.h"
 
-1573242943 c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\parser\parser.h
+1573321843 c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\parser\parser.h
 	<string>
 	<list>
 
@@ -62,6 +63,7 @@
 	<string>
 	<list>
 
-1573285656 c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\node\node.h
+1573335845 c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\node\node.h
+	<iostream>
 	<vector>
 

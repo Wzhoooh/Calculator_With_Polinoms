@@ -15,42 +15,38 @@ int main()
 try
 {
     map_int_LD inputMap;
-    inputMap.insert({0, -3});
-    inputMap.insert({1, 1});
-    Node* pol = new Polinom(inputMap);
+    inputMap.insert({0, 2});
+    inputMap.insert({1, 3});
+    const Polinom& pol = Polinom(inputMap);
+    pol.print(cout);
+    cout << endl;
 
     map_int_LD inputMapTwo;
-    inputMapTwo.insert({0, -3});
-    inputMapTwo.insert({1, 1});
-    Node* polTwo = new Polinom(inputMapTwo);
+    inputMapTwo.insert({0, 4});
+    inputMapTwo.insert({2, 5});
+    const Polinom& polTwo = Polinom(inputMapTwo);
+    polTwo.print(cout);
+    cout << endl;
 
-//    Node* uMinusNode = new UnaryMinus;
-//    NodeOneArgument* uMinusNodeZero = static_cast < NodeOneArgument* > (uMinusNode);
-//    Polinom* resutedPolinom = static_cast < Polinom* > (uMinusNodeZero->getValue(pol));
+//    const NodeTwoArguments& oper = BinarySub();
+//    const NodeTwoArguments& oper = BinaryAdd();
+    const NodeTwoArguments& oper = BinaryMul();
+    const Polinom& resultedPolinom = dynamic_cast < const Polinom& > (oper.getValue(pol, polTwo));
 
-//    Node* uPlusNode = new UnaryPlus;
-//    NodeOneArgument* uPlusNodeZero = static_cast < NodeOneArgument* > (uPlusNode);
-//    Polinom* resutedPolinom = static_cast < Polinom* > (uPlusNodeZero->getValue(pol));
+    resultedPolinom.print(cout);
+    cout << endl;
 
-//    Node* bAddNode = new BinaryAdd;
-//    NodeTwoArguments* AddNodeTwo = static_cast < NodeTwoArguments* > (bAddNode);
-//    Polinom* resutedPolinom = static_cast < Polinom* > (AddNodeTwo->getValue(pol, polTwo));
-
-    Node* bMulNode = new BinaryMul;
-    NodeTwoArguments* MulNodeTwo = dynamic_cast < NodeTwoArguments* > (bMulNode);
-    Polinom* resutedPolinom = dynamic_cast < Polinom* > (MulNodeTwo->getValue(pol, polTwo));
-
-    map_int_LD resultedMap =  resutedPolinom->getCoefficients();
-    printMap(resultedMap);
+//    map_int_LD resultedMap = (dynamic_cast < const Polinom& > (resultedPolinom)).getCoefficients();
+//    printMap(resultedMap);
 
 }
-catch (exception* e)
+catch (exception& e)
 {
-    cout << e->what();
+    cout << e.what() << endl;
 }
 catch(...)
 {
-    cout << "some exception";
+    cout << "some exception" << endl;
 }
 }
 

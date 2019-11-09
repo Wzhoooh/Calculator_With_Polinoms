@@ -1,26 +1,38 @@
 #include "Polinom.h"
 
-Polinom::Polinom(const Polinom& source)
+Polinom::Polinom(const Polinom& source)//: Polinom(source.getCoefficients())
 {
-    this->coefficients = source.coefficients;
+    Polinom(source.getCoefficients());
 }
 
 Polinom::Polinom(const map_int_LD coefficients)
 {
     this->coefficients = coefficients;
+    // we are deleting elements with zero coefficients
+    for (map_int_LD_it i = this->coefficients.begin(); i != this->coefficients.end(); i++)
+        if (i->second == 0)
+            this->coefficients.erase(i);
 }
 
-int Polinom::getNumArguments()
+int Polinom::getNumArguments() const
 {
     return 0; /// number of Polinom Arguments
 }
 
-Node* Polinom::getValue()
+const Node& Polinom::getValue() const
 {
-    return (Node*)new Polinom(*this);
+    return Polinom(*this);
 }
 
 map_int_LD Polinom::getCoefficients() const
 {
-    return this->coefficients;
+    return coefficients;
+}
+
+void Polinom::print(ostream& os) const
+{
+    for (auto& i : coefficients)
+    {
+        os << i.second << "*x^" << i.first << " ";
+    }
 }

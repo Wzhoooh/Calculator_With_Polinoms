@@ -11,8 +11,8 @@ private:
 
 public:
     UnaryPlus() = default;
-    Node* getValue(Node* polinom) final;
-    int getNumArguments() final;
+    const Node& getValue(const Node& polinom) const final;
+    int getNumArguments() const final;
 };
 
 class UnaryMinus: public NodeOneArgument
@@ -21,8 +21,8 @@ private:
     const int numArguments{1};
 public:
     UnaryMinus() = default;
-    Node* getValue(Node* polinom) final;
-    int getNumArguments() final;
+    const Node& getValue(const Node& polinom) const final;
+    int getNumArguments() const final;
 };
 
 
@@ -33,8 +33,8 @@ private:
     const int numArguments{2};
 public:
     BinaryAdd() = default;
-    Node* getValue(Node* polinomFirst, Node* polinomSecond) throw(Too_Big_Number, Too_Big_Degree_Of_X) final;
-    int getNumArguments() final;
+    const Node& getValue(const Node& polinomFirst, const Node& polinomSecond) const throw(Too_Big_Number, Too_Big_Degree_Of_X) final;
+    int getNumArguments() const final;
 };
 
 class BinarySub: public NodeTwoArguments
@@ -43,8 +43,8 @@ private:
     const int numArguments{2};
 public:
     BinarySub() = default;
-    Node* getValue(Node* polinomFirst, Node* polinomSecond) throw(Too_Big_Number, Too_Big_Degree_Of_X) final;
-    int getNumArguments() final;
+    const Node& getValue(const Node& polinomFirst, const Node& polinomSecond) const throw(Too_Big_Number, Too_Big_Degree_Of_X) final;
+    int getNumArguments() const final;
 };
 
 class BinaryMul: public NodeTwoArguments
@@ -53,8 +53,8 @@ private:
     const int numArguments{2};
 public:
     BinaryMul() = default;
-    Node* getValue(Node* polinomFirst, Node* polinomSecond) throw(Too_Big_Number, Too_Big_Degree_Of_X) final;
-    int getNumArguments() final;
+    const Node& getValue(const Node& polinomFirst, const Node& polinomSecond) const throw(Too_Big_Number, Too_Big_Degree_Of_X) final;
+    int getNumArguments() const final;
 };
 
 class BinaryDiv: public NodeTwoArguments
@@ -63,8 +63,8 @@ private:
     const int numArguments{2};
 public:
     BinaryDiv() = default;
-    Node* getValue(Node* polinomFirst, Node* polinomSecond) throw(Too_Big_Number, Too_Big_Degree_Of_X) final;
-    int getNumArguments() final;
+    const Node& getValue(const Node& polinomFirst, const Node& polinomSecond) const throw(Too_Big_Number, Too_Big_Degree_Of_X) final;
+    int getNumArguments() const final;
 };
 
 class BinaryPow: public NodeTwoArguments
@@ -73,8 +73,8 @@ private:
     const int numArguments{2};
 public:
     BinaryPow() = default;
-    Node* getValue(Node* polinomFirst, Node* polinomSecond) throw(Too_Big_Number, Too_Big_Degree_Of_X) final;
-    int getNumArguments() final;
+    const Node& getValue(const Node& polinomFirst, const Node& polinomSecond) const throw(Too_Big_Number, Too_Big_Degree_Of_X) final;
+    int getNumArguments() const final;
 };
 
 #endif // OPERATIONS_H_INCLUDED

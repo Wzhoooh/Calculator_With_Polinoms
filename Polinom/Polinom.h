@@ -5,6 +5,7 @@
 
 #include <map>
 #include <utility>
+
 using std::map;
 using std::pair;
 
@@ -20,10 +21,11 @@ public:
     Polinom() = default;
     Polinom(const Polinom&);
     Polinom(const map_int_LD);
-    int getNumArguments() final;
-    Node* getValue() final;
+    int getNumArguments() const final;
+    const Node& getValue() const final;
 
     map_int_LD getCoefficients() const; /// copies coefficients
+    void print(ostream& os) const;
 };
 
 #endif // POLINOM_H_INCLUDED

@@ -1,60 +1,69 @@
 #include "Operations.h"
 
 #include <iostream>
+#include <cstdlib>
 
-Node* UnaryMinus::getValue(Node* polinom)
+const Node& UnaryMinus::getValue(const Node& polinom) const
 {
-    Polinom* pointerPolinom = dynamic_cast < Polinom* > (polinom);
-    map_int_LD coefficients = pointerPolinom->getCoefficients();
+    const Polinom& pointerPolinom = dynamic_cast < const Polinom& > (polinom);
+    map_int_LD coefficients = pointerPolinom.getCoefficients();
 
     for (auto& i : coefficients)
         i.second *= -1;
 
-    return (Node*)new Polinom(coefficients);
+    return *(new Polinom(coefficients));
 }
-int UnaryMinus::getNumArguments()
+int UnaryMinus::getNumArguments() const
 {
     return 1;
 }
 
-Node* UnaryPlus::getValue(Node* polinom)
+const Node& UnaryPlus::getValue(const Node& polinom) const
 {
-    return (Node*)new Polinom(*(dynamic_cast < Polinom* > (polinom)));
+    return *(new Polinom(dynamic_cast < const Polinom& > (polinom)));
 }
-int UnaryPlus::getNumArguments()
+int UnaryPlus::getNumArguments() const
 {
     return 1;
 }
 
 ///----------------------Binary_Operations----------------------///
 
-Node* BinaryAdd::getValue(Node* polinomFirst, Node* polinomSecond) throw(Too_Big_Number, Too_Big_Degree_Of_X)
+const Node& BinaryAdd::getValue(const Node& polinomFirst, const Node& polinomSecond) const throw(Too_Big_Number, Too_Big_Degree_Of_X)
 {
-    Polinom*  pointerPolinomFirst = dynamic_cast < Polinom* > (polinomFirst);
-    Polinom* pointerPolinomSecond = dynamic_cast < Polinom* > (polinomSecond);
-    map_int_LD  coefficientsFirst =  pointerPolinomFirst->getCoefficients();
-    map_int_LD coefficientsSecond = pointerPolinomSecond->getCoefficients();
+    const Polinom&  pointerPolinomFirst = dynamic_cast < const Polinom& > (polinomFirst);
+    const Polinom& pointerPolinomSecond = dynamic_cast < const Polinom& > (polinomSecond);
+    map_int_LD  coefficientsFirst =  pointerPolinomFirst.getCoefficients();
+    map_int_LD coefficientsSecond = pointerPolinomSecond.getCoefficients();
     map_int_LD resultedCoefficients = coefficientsFirst;
 
     for (map_int_LD_it itSecond = coefficientsSecond.begin(); itSecond != coefficientsSecond.end(); itSecond++)
         resultedCoefficients[itSecond->first] += itSecond->second;
 
-    return (Node*)new Polinom(resultedCoefficients);
+    return *(new Polinom(resultedCoefficients));
 }
-int BinaryAdd::getNumArguments()
-{}
-
-Node* BinarySub::getValue(Node* polinomFirst, Node* polinomSecond) throw(Too_Big_Number, Too_Big_Degree_Of_X)
-{}
-int BinarySub::getNumArguments()
-{}
-
-Node* BinaryMul::getValue(Node* polinomFirst, Node* polinomSecond) throw(Too_Big_Number, Too_Big_Degree_Of_X)
+int BinaryAdd::getNumArguments() const
 {
-    Polinom*  pointerPolinomFirst = dynamic_cast < Polinom* > (polinomFirst);
-    Polinom* pointerPolinomSecond = dynamic_cast < Polinom* > (polinomSecond);
-    map_int_LD  coefficientsFirst =  pointerPolinomFirst->getCoefficients();
-    map_int_LD coefficientsSecond = pointerPolinomSecond->getCoefficients();
+    return 2;
+}
+
+const Node& BinarySub::getValue(const Node& polinomFirst, const Node& polinomSecond) const throw(Too_Big_Number, Too_Big_Degree_Of_X)
+{
+    BinaryAdd add;
+    UnaryMinus minus;
+    return add.getValue(polinomFirst, minus.getValue(polinomSecond));
+}
+int BinarySub::getNumArguments() const
+{
+    return 2;
+}
+
+const Node& BinaryMul::getValue(const Node& polinomFirst, const Node& polinomSecond) const throw(Too_Big_Number, Too_Big_Degree_Of_X)
+{
+    const Polinom&  pointerPolinomFirst = dynamic_cast < const Polinom& > (polinomFirst);
+    const Polinom& pointerPolinomSecond = dynamic_cast < const Polinom& > (polinomSecond);
+    map_int_LD  coefficientsFirst =  pointerPolinomFirst.getCoefficients();
+    map_int_LD coefficientsSecond = pointerPolinomSecond.getCoefficients();
     map_int_LD resultedCoefficients;
 
     for (map_int_LD_it itFirst = coefficientsFirst.begin(); itFirst != coefficientsFirst.end(); itFirst++)
@@ -63,31 +72,31 @@ Node* BinaryMul::getValue(Node* polinomFirst, Node* polinomSecond) throw(Too_Big
         {
             int resultedDegree = itFirst->first + itSecond->first;
             if (resultedDegree > MAX_DEGREE)
-                throw new Too_Big_Degree_Of_X;
+                throw Too_Big_Degree_Of_X();
 
             long double resultedCoefficient = itFirst->second * itSecond->second;
-            if (resultedCoefficient > MAX_NUMBER)
-                throw new Too_Big_Number;
+            if (abs(resultedCoefficient) > MAX_NUMBER)
+                throw Too_Big_Number();
 
             resultedCoefficients[resultedDegree] += resultedCoefficient;
         }
     }
 
-    return (Node*)new Polinom(resultedCoefficients);
+    return *(new Polinom(resultedCoefficients));
 }
-int BinaryMul::getNumArguments()
+int BinaryMul::getNumArguments() const
 {
     return 2;
 }
 
-Node* BinaryDiv::getValue(Node* polinomFirst, Node* polinomSecond) throw(Too_Big_Number, Too_Big_Degree_Of_X)
+const Node& BinaryDiv::getValue(const Node& polinomFirst, const Node& polinomSecond) const throw(Too_Big_Number, Too_Big_Degree_Of_X)
 {}
-int BinaryDiv::getNumArguments()
+int BinaryDiv::getNumArguments() const
 {}
 
-Node* BinaryPow::getValue(Node* polinomFirst, Node* polinomSecond) throw(Too_Big_Number, Too_Big_Degree_Of_X)
+const Node& BinaryPow::getValue(const Node& polinomFirst, const Node& polinomSecond) const throw(Too_Big_Number, Too_Big_Degree_Of_X)
 {}
-int BinaryPow::getNumArguments()
+int BinaryPow::getNumArguments() const
 {}
 
 
