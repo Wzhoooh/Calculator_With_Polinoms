@@ -2,7 +2,7 @@
 #define EXCEPTIONS_H_INCLUDED
 
 #define MAX_NUMBER 1e18
-#define MAX_DEGREE 100
+#define MAX_DEGREE 10000
 
 #include <exception>
 using std::exception;
