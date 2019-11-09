@@ -1,14 +1,14 @@
 # depslib dependency file v1.0
 1573143291 source:c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\calculator_methods.cpp
 
-1573316027 source:c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\main.cpp
+1573319880 source:c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\main.cpp
 	<iostream>
 	<climits>
 	"Calculator.h"
 
 1573147492 source:c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\numberx\numberx_methods.cpp
 
-1573316169 source:c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\operations\operations_methods.cpp
+1573319912 source:c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\operations\operations_methods.cpp
 	"Operations.h"
 	<iostream>
 

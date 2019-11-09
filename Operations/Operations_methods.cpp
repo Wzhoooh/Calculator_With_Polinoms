@@ -4,7 +4,7 @@
 
 Node* UnaryMinus::getValue(Node* polinom)
 {
-    Polinom* pointerPolinom = static_cast < Polinom* > (polinom);
+    Polinom* pointerPolinom = dynamic_cast < Polinom* > (polinom);
     map_int_LD coefficients = pointerPolinom->getCoefficients();
 
     for (auto& i : coefficients)
@@ -19,7 +19,7 @@ int UnaryMinus::getNumArguments()
 
 Node* UnaryPlus::getValue(Node* polinom)
 {
-    return (Node*)new Polinom(*(static_cast < Polinom* > (polinom)));
+    return (Node*)new Polinom(*(dynamic_cast < Polinom* > (polinom)));
 }
 int UnaryPlus::getNumArguments()
 {
@@ -30,8 +30,8 @@ int UnaryPlus::getNumArguments()
 
 Node* BinaryAdd::getValue(Node* polinomFirst, Node* polinomSecond) throw(Too_Big_Number, Too_Big_Degree_Of_X)
 {
-    Polinom*  pointerPolinomFirst = static_cast < Polinom* > (polinomFirst);
-    Polinom* pointerPolinomSecond = static_cast < Polinom* > (polinomSecond);
+    Polinom*  pointerPolinomFirst = dynamic_cast < Polinom* > (polinomFirst);
+    Polinom* pointerPolinomSecond = dynamic_cast < Polinom* > (polinomSecond);
     map_int_LD  coefficientsFirst =  pointerPolinomFirst->getCoefficients();
     map_int_LD coefficientsSecond = pointerPolinomSecond->getCoefficients();
     map_int_LD resultedCoefficients = coefficientsFirst;
@@ -51,8 +51,8 @@ int BinarySub::getNumArguments()
 
 Node* BinaryMul::getValue(Node* polinomFirst, Node* polinomSecond) throw(Too_Big_Number, Too_Big_Degree_Of_X)
 {
-    Polinom*  pointerPolinomFirst = static_cast < Polinom* > (polinomFirst);
-    Polinom* pointerPolinomSecond = static_cast < Polinom* > (polinomSecond);
+    Polinom*  pointerPolinomFirst = dynamic_cast < Polinom* > (polinomFirst);
+    Polinom* pointerPolinomSecond = dynamic_cast < Polinom* > (polinomSecond);
     map_int_LD  coefficientsFirst =  pointerPolinomFirst->getCoefficients();
     map_int_LD coefficientsSecond = pointerPolinomSecond->getCoefficients();
     map_int_LD resultedCoefficients;

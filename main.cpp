@@ -37,8 +37,8 @@ try
 //    Polinom* resutedPolinom = static_cast < Polinom* > (AddNodeTwo->getValue(pol, polTwo));
 
     Node* bMulNode = new BinaryMul;
-    NodeTwoArguments* MulNodeTwo = static_cast < NodeTwoArguments* > (bMulNode);
-    Polinom* resutedPolinom = static_cast < Polinom* > (MulNodeTwo->getValue(pol, polTwo));
+    NodeTwoArguments* MulNodeTwo = dynamic_cast < NodeTwoArguments* > (bMulNode);
+    Polinom* resutedPolinom = dynamic_cast < Polinom* > (MulNodeTwo->getValue(pol, polTwo));
 
     map_int_LD resultedMap =  resutedPolinom->getCoefficients();
     printMap(resultedMap);
