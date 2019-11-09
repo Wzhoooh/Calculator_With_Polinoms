@@ -1,6 +1,9 @@
 #ifndef EXCEPTIONS_H_INCLUDED
 #define EXCEPTIONS_H_INCLUDED
 
+#define MAX_NUMBER 1e18
+#define MAX_DEGREE 100
+
 #include <exception>
 using std::exception;
 

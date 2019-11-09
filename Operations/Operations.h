@@ -33,7 +33,7 @@ private:
     const int numArguments{2};
 public:
     BinaryAdd() = default;
-    Node* getValue(Node* polinomFirst, Node* polinomSecond) final;
+    Node* getValue(Node* polinomFirst, Node* polinomSecond) throw(Too_Big_Number, Too_Big_Degree_Of_X) final;
     int getNumArguments() final;
 };
 
@@ -43,7 +43,7 @@ private:
     const int numArguments{2};
 public:
     BinarySub() = default;
-    Node* getValue(Node* polinomFirst, Node* polinomSecond) final;
+    Node* getValue(Node* polinomFirst, Node* polinomSecond) throw(Too_Big_Number, Too_Big_Degree_Of_X) final;
     int getNumArguments() final;
 };
 
@@ -53,7 +53,7 @@ private:
     const int numArguments{2};
 public:
     BinaryMul() = default;
-    Node* getValue(Node* polinomFirst, Node* polinomSecond) final;
+    Node* getValue(Node* polinomFirst, Node* polinomSecond) throw(Too_Big_Number, Too_Big_Degree_Of_X) final;
     int getNumArguments() final;
 };
 
@@ -63,7 +63,7 @@ private:
     const int numArguments{2};
 public:
     BinaryDiv() = default;
-    Node* getValue(Node* polinomFirst, Node* polinomSecond) final;
+    Node* getValue(Node* polinomFirst, Node* polinomSecond) throw(Too_Big_Number, Too_Big_Degree_Of_X) final;
     int getNumArguments() final;
 };
 
@@ -73,7 +73,7 @@ private:
     const int numArguments{2};
 public:
     BinaryPow() = default;
-    Node* getValue(Node* polinomFirst, Node* polinomSecond) final;
+    Node* getValue(Node* polinomFirst, Node* polinomSecond) throw(Too_Big_Number, Too_Big_Degree_Of_X) final;
     int getNumArguments() final;
 };
 
