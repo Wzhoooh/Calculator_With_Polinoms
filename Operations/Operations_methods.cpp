@@ -1,19 +1,26 @@
-#include "../Node/Node.h"
-#include "../Polinom/Polinom.h"
-#include "../Exceptions/Exceptions.h"
 #include "Operations.h"
 
 Node* UnaryMinus::getValue(Node* polinom)
 {
-    Polinom p;
-    Node* p = new Polinom(vector < long double >());
-    NodeZeroArguments* nZero = static_cast < NodeZeroArguments* > (p);
+    Polinom* pointerPolinom = static_cast < Polinom* > (polinom);
+    map_int_LD coefficients = pointerPolinom->getCoefficients();
 
-    NodeZeroArguments* pointerZeroArguments = static_cast < NodeZeroArguments* > (polinom);
-    Polinom* pointerPolinom = static_cast < Polinom* > (pointerZeroArguments);
-    vector < double > coefficients = pointerPolinom->getCoefficients();
+    for (auto& i : coefficients)
+        i.second *= -1;
+
+    return (Node*)new Polinom(coefficients);
 }
-int UnaryMinus::getNumArguments() const
+int UnaryMinus::getNumArguments()
 {
-
+    return 1;
 }
+
+Node* UnaryPlus::getValue(Node* polinom)
+{
+    return (Node*)new Polinom(*(static_cast < Polinom* > (polinom)));
+}
+int UnaryPlus::getNumArguments()
+{
+    return 1;
+}
+
