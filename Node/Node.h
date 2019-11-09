@@ -11,19 +11,19 @@ public:
 };
 
 
-class NodeZeroArguments
+class NodeZeroArguments: public Node
 {
 public:
     virtual Node* getValue() = 0; /// value of Polinom
 };
 
-class NodeOneArgument
+class NodeOneArgument: public Node
 {
 public:
     virtual Node* getValue(Node*) = 0; /// unary operation
 };
 
-class NodeTwoArguments
+class NodeTwoArguments: public Node
 {
 public:
     virtual Node* getValue(Node*, Node*) = 0; /// binary operation

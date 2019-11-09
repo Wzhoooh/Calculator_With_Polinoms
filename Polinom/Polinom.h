@@ -10,13 +10,13 @@ private:
     vector < long double > coefficients;
 
 public:
-    Polinom() = delete;
+    Polinom() = default;
     Polinom(const Polinom&);
-    Polinom(const vector < long double >&);
+    Polinom(const vector < long double >);
     int getNumArguments() const;
     Node* getValue();
 
-    //vector < long double > getCoefficients() const; /// copies coefficients
+    vector < long double > getCoefficients() const; /// copies coefficients
 };
 
 #endif // POLINOM_H_INCLUDED

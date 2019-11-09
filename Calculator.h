@@ -11,6 +11,9 @@ class Calculator;
 class Parser;
 
 class Node; /// interface
+class NodeZeroArguments; /// interface
+class   NodeOneArgument; /// interface
+class  NodeTwoArguments; /// interface
 
 class Polinom; // : public Node
 

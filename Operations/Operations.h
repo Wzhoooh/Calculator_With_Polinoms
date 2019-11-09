@@ -8,7 +8,7 @@ private:
 
 public:
     UnaryPlus() = default;
-    Node* getValue(Node* Number);
+    Node* getValue(Node* polinom);
     int getNumArguments() const;
 };
 
@@ -18,7 +18,7 @@ private:
     const int numArguments{1};
 public:
     UnaryMinus() = default;
-    Node* getValue(Node* Number);
+    Node* getValue(Node* polinom);
     int getNumArguments() const;
 };
 
@@ -30,7 +30,7 @@ private:
     const int numArguments{2};
 public:
     BinaryAdd() = default;
-    Node* getValue(Node* NumberFirst, Node* NumberSecond);
+    Node* getValue(Node* polinomFirst, Node* polinomSecond);
     int getNumArguments() const;
 };
 
@@ -40,7 +40,7 @@ private:
     const int numArguments{2};
 public:
     BinarySub() = default;
-    Node* getValue(Node* NumberFirst, Node* NumberSecond);
+    Node* getValue(Node* polinomFirst, Node* polinomSecond);
     int getNumArguments() const;
 };
 
@@ -50,7 +50,7 @@ private:
     const int numArguments{2};
 public:
     BinaryMul() = default;
-    Node* getValue(Node* NumberFirst, Node* NumberSecond);
+    Node* getValue(Node* polinomFirst, Node* polinomSecond);
     int getNumArguments() const;
 };
 
@@ -60,7 +60,7 @@ private:
     const int numArguments{2};
 public:
     BinaryDiv() = default;
-    Node* getValue(Node* NumberFirst, Node* NumberSecond);
+    Node* getValue(Node* polinomFirst, Node* polinomSecond);
     int getNumArguments() const;
 };
 
@@ -70,7 +70,7 @@ private:
     const int numArguments{2};
 public:
     BinaryPow() = default;
-    Node* getValue(Node* NumberFirst, Node* NumberSecond);
+    Node* getValue(Node* polinomFirst, Node* polinomSecond);
     int getNumArguments() const;
 };
 
