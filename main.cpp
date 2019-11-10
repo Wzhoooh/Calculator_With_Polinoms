@@ -16,22 +16,24 @@ try
 {
     map_int_LD inputMap;
     inputMap.insert({0, 2});
-    inputMap.insert({1, 3});
-    const Polinom& pol = Polinom(inputMap);
+    inputMap.insert({1, -3});
+    const Node& pol = Polinom(inputMap);
     pol.print(cout);
     cout << endl;
 
     map_int_LD inputMapTwo;
     inputMapTwo.insert({0, 4});
     inputMapTwo.insert({2, 5});
-    const Polinom& polTwo = Polinom(inputMapTwo);
+    const Node& polTwo = Polinom(inputMapTwo);
     polTwo.print(cout);
     cout << endl;
+
+    const Node& Add = BinaryAdd();
 
 //    const NodeTwoArguments& oper = BinarySub();
 //    const NodeTwoArguments& oper = BinaryAdd();
     const NodeTwoArguments& oper = BinaryMul();
-    const Polinom& resultedPolinom = dynamic_cast < const Polinom& > (oper.getValue(pol, polTwo));
+    const Polinom& resultedPolinom = dynamic_cast < const Polinom& > (oper.getValue(Add, polTwo));
 
     resultedPolinom.print(cout);
     cout << endl;

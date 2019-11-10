@@ -3,8 +3,11 @@
 #include <iostream>
 #include <cstdlib>
 
-const Node& UnaryMinus::getValue(const Node& polinom) const
+const Node& UnaryMinus::getValue(const Node& polinom) const throw(Invalid_Order)
 {
+    if (polinom.getNumArguments() != 0)
+        throw Invalid_Order();
+
     const Polinom& pointerPolinom = dynamic_cast < const Polinom& > (polinom);
     map_int_LD coefficients = pointerPolinom.getCoefficients();
 
@@ -17,20 +20,34 @@ int UnaryMinus::getNumArguments() const
 {
     return 1;
 }
-
-const Node& UnaryPlus::getValue(const Node& polinom) const
+void UnaryMinus::print(ostream& os) const
 {
+    os << "Unary_Minus ";
+}
+
+const Node& UnaryPlus::getValue(const Node& polinom) const throw(Invalid_Order)
+{
+    if (polinom.getNumArguments() != 0)
+        throw Invalid_Order();
+
     return *(new Polinom(dynamic_cast < const Polinom& > (polinom)));
 }
 int UnaryPlus::getNumArguments() const
 {
     return 1;
 }
+void UnaryPlus::print(ostream& os) const
+{
+    os << "Unary_Plus ";
+}
 
 ///----------------------Binary_Operations----------------------///
 
-const Node& BinaryAdd::getValue(const Node& polinomFirst, const Node& polinomSecond) const throw(Too_Big_Number, Too_Big_Degree_Of_X)
+const Node& BinaryAdd::getValue(const Node& polinomFirst, const Node& polinomSecond) const throw(Too_Big_Number, Too_Big_Degree_Of_X, Invalid_Order)
 {
+    if (polinomFirst.getNumArguments() != 0 || polinomSecond.getNumArguments() != 0)
+        throw Invalid_Order();
+
     const Polinom&  pointerPolinomFirst = dynamic_cast < const Polinom& > (polinomFirst);
     const Polinom& pointerPolinomSecond = dynamic_cast < const Polinom& > (polinomSecond);
     map_int_LD  coefficientsFirst =  pointerPolinomFirst.getCoefficients();
@@ -46,9 +63,16 @@ int BinaryAdd::getNumArguments() const
 {
     return 2;
 }
-
-const Node& BinarySub::getValue(const Node& polinomFirst, const Node& polinomSecond) const throw(Too_Big_Number, Too_Big_Degree_Of_X)
+void BinaryAdd::print(ostream& os) const
 {
+    os << "Binary_Add ";
+}
+
+const Node& BinarySub::getValue(const Node& polinomFirst, const Node& polinomSecond) const throw(Too_Big_Number, Too_Big_Degree_Of_X, Invalid_Order)
+{
+    if (polinomFirst.getNumArguments() != 0 || polinomSecond.getNumArguments() != 0)
+        throw Invalid_Order();
+
     BinaryAdd add;
     UnaryMinus minus;
     return add.getValue(polinomFirst, minus.getValue(polinomSecond));
@@ -57,9 +81,16 @@ int BinarySub::getNumArguments() const
 {
     return 2;
 }
-
-const Node& BinaryMul::getValue(const Node& polinomFirst, const Node& polinomSecond) const throw(Too_Big_Number, Too_Big_Degree_Of_X)
+void BinarySub::print(ostream& os) const
 {
+    os << "Binary_Sub ";
+}
+
+const Node& BinaryMul::getValue(const Node& polinomFirst, const Node& polinomSecond) const throw(Too_Big_Number, Too_Big_Degree_Of_X, Invalid_Order)
+{
+    if (polinomFirst.getNumArguments() != 0 || polinomSecond.getNumArguments() != 0)
+        throw Invalid_Order();
+
     const Polinom&  pointerPolinomFirst = dynamic_cast < const Polinom& > (polinomFirst);
     const Polinom& pointerPolinomSecond = dynamic_cast < const Polinom& > (polinomSecond);
     map_int_LD  coefficientsFirst =  pointerPolinomFirst.getCoefficients();
@@ -88,15 +119,39 @@ int BinaryMul::getNumArguments() const
 {
     return 2;
 }
+void BinaryMul::print(ostream& os) const
+{
+    os << "Binary_Mul ";
+}
 
-const Node& BinaryDiv::getValue(const Node& polinomFirst, const Node& polinomSecond) const throw(Too_Big_Number, Too_Big_Degree_Of_X)
-{}
+const Node& BinaryDiv::getValue(const Node& polinomFirst, const Node& polinomSecond) const throw(Too_Big_Number, Too_Big_Degree_Of_X, Invalid_Order)
+{
+    if (polinomFirst.getNumArguments() != 0 || polinomSecond.getNumArguments() != 0)
+        throw Invalid_Order();
+
+}
 int BinaryDiv::getNumArguments() const
-{}
+{
+    return 2;
+}
+void BinaryDiv::print(ostream& os) const
+{
+    os << "Binary_Div ";
+}
 
-const Node& BinaryPow::getValue(const Node& polinomFirst, const Node& polinomSecond) const throw(Too_Big_Number, Too_Big_Degree_Of_X)
-{}
+const Node& BinaryPow::getValue(const Node& polinomFirst, const Node& polinomSecond) const throw(Too_Big_Number, Too_Big_Degree_Of_X, Invalid_Order)
+{
+    if (polinomFirst.getNumArguments() != 0 || polinomSecond.getNumArguments() != 0)
+        throw Invalid_Order();
+
+}
 int BinaryPow::getNumArguments() const
-{}
+{
+    return 2;
+}
+void BinaryPow::print(ostream& os) const
+{
+    os << "Binary_Pow ";
+}
 
 

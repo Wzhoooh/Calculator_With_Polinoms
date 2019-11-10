@@ -21,7 +21,7 @@ int Polinom::getNumArguments() const
 
 const Node& Polinom::getValue() const
 {
-    return Polinom(*this);
+    return *(new Polinom(*this));
 }
 
 map_int_LD Polinom::getCoefficients() const
@@ -33,6 +33,11 @@ void Polinom::print(ostream& os) const
 {
     for (auto& i : coefficients)
     {
-        os << i.second << "*x^" << i.first << " ";
+        if (i.first == 0)
+            os << i.second << " ";
+        else if (i.first == 1)
+            os << i.second << "*x ";
+        else
+            os << i.second << "*x^" << i.first << " ";
     }
 }
