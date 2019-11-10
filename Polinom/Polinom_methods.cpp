@@ -33,6 +33,7 @@ void Polinom::print(ostream& os) const
 {
     for (auto& i : coefficients)
     {
+        os << "+ ";
         if (i.first == 0)
             os << i.second << " ";
         else if (i.first == 1)

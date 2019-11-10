@@ -5,7 +5,9 @@
 #define MAX_DEGREE 10000
 
 #include <exception>
+#include <typeinfo>
 using std::exception;
+using std::bad_cast;
 
 class           Div_By_Zero; /// a / 0
 class        Too_Big_Number; /// infinity

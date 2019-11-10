@@ -6,6 +6,7 @@
 
 using std::vector;
 using std::list;
+using std::reference_wrapper;
 
 class Calculator;
 class Parser;
@@ -36,13 +37,13 @@ class BinaryPow; // : public BinaryOperation
 class Calculator
 {
 private:
-    list < Node > expression;
+    //list < Node > expression;
 
     void reverseToBackNotation();
 
 public:
     Calculator() = delete;
-    Calculator(list < Node >& expression); /// pulled by Parser
+    //Calculator(list < Node > expression); /// pulled by Parser
 
     Node& getResult();
 };
