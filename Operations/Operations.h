@@ -68,7 +68,7 @@ private:
     const int numArguments{2};
 public:
     BinaryDiv() = default;
-    const Node& getValue(const Node& polinomFirst, const Node& polinomSecond) const throw(Too_Big_Number, Too_Big_Degree_Of_X, bad_cast) final;
+    const Node& getValue(const Node& polinomFirst, const Node& polinomSecond) const throw(Too_Big_Number, Too_Big_Degree_Of_X, Div_By_X, bad_cast) final;
     int getNumArguments() const final;
     void print(ostream& os) const;
 };

@@ -23,13 +23,13 @@ class Invalid_Cast;
 class Div_By_Zero: public exception
 {
 public:
-    const char* what() const throw() { return ""; }
+    const char* what() const throw() { return "dividing by zero"; }
 };
 
 class Too_Big_Number: public exception
 {
 public:
-    const char* what() const throw() { return ""; }
+    const char* what() const throw() { return "too big number"; }
 };
 
 class Too_Big_Degree_Of_X: public exception
@@ -41,19 +41,19 @@ public:
 class Invalid_Degree_Of_X: public exception
 {
 public:
-    const char* what() const throw() { return ""; }
+    const char* what() const throw() { return "invalid X degree"; }
 };
 
 class X_In_Degree: public exception
 {
 public:
-    const char* what() const throw() { return ""; }
+    const char* what() const throw() { return "X in degree"; }
 };
 
 class Div_By_X: public exception
 {
 public:
-    const char* what() const throw() { return ""; }
+    const char* what() const throw() { return "dividing by X"; }
 };
 
 class Invalid_Order: public exception

@@ -9,9 +9,11 @@ Polinom::Polinom(const map_int_LD coefficients)
 {
     this->coefficients = coefficients;
     // we are deleting elements with zero coefficients
-    for (map_int_LD_it i = this->coefficients.begin(); i != this->coefficients.end(); i++)
+    for (map_int_LD_it i = this->coefficients.begin(); i != this->coefficients.end();)
         if (i->second == 0)
-            this->coefficients.erase(i);
+            this->coefficients.erase(i++);
+        else
+            ++i;
 }
 
 int Polinom::getNumArguments() const
