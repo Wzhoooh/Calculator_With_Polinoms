@@ -45,7 +45,7 @@ const Node& BinaryAdd::getValue(const Node& polinomFirst, const Node& polinomSec
     map_int_LD coefficientsSecond = pointerPolinomSecond.getCoefficients();
     map_int_LD resultedCoefficients = coefficientsFirst;
 
-    for (map_int_LD_it itSecond = coefficientsSecond.begin(); itSecond != coefficientsSecond.end(); itSecond++)
+    for (map_int_LD::iterator itSecond = coefficientsSecond.begin(); itSecond != coefficientsSecond.end(); itSecond++)
     {
         if (resultedCoefficients[itSecond->first] + itSecond->second != 0)
             resultedCoefficients[itSecond->first] += itSecond->second;
@@ -86,9 +86,9 @@ const Node& BinaryMul::getValue(const Node& polinomFirst, const Node& polinomSec
     map_int_LD coefficientsSecond = pointerPolinomSecond.getCoefficients();
     map_int_LD resultedCoefficients;
 
-    for (map_int_LD_it itFirst = coefficientsFirst.begin(); itFirst != coefficientsFirst.end(); itFirst++)
+    for (map_int_LD::iterator itFirst = coefficientsFirst.begin(); itFirst != coefficientsFirst.end(); itFirst++)
     {
-        for (map_int_LD_it itSecond = coefficientsSecond.begin(); itSecond != coefficientsSecond.end(); itSecond++)
+        for (map_int_LD::iterator itSecond = coefficientsSecond.begin(); itSecond != coefficientsSecond.end(); itSecond++)
         {
             int resultedDegree = itFirst->first + itSecond->first;
             if (resultedDegree > MAX_DEGREE)
@@ -126,7 +126,7 @@ const Node& BinaryDiv::getValue(const Node& polinomFirst, const Node& polinomSec
         throw Div_By_X();
 
     long double divider = coefficientsSecond.begin()->second;
-    if (divider == 0)
+    if (abs(divider) < PRECISION) /// 1e-20
         throw Div_By_Zero();
 
     for (auto& i : resultedCoefficients)
@@ -158,11 +158,18 @@ const Node& BinaryPow::getValue(const Node& polinomFirst, const Node& polinomSec
     if (degree > MAX_DEGREE)
         throw Too_Big_Degree();
 
-    if ((coefficientsFirst.size() != 1 && (long long)degree != degree) || degree < 0)
+    if ((coefficientsFirst.size() != 1 || coefficientsSecond.begin()->first != 0) && (long long)degree != degree)
         throw Invalid_Degree_Of_X();
 
-    if (degree == 1)
-        return polinomFirst;
+    if ((coefficientsFirst.size() != 1 || coefficientsSecond.begin()->first != 0) && degree < 0)
+        throw Invalid_Degree_Of_X();
+
+    if (degree == 0)
+    {
+        map_int_LD coefficientZeroDegree;
+        coefficientZeroDegree.insert({0, 1});
+        return *( new Polinom(coefficientZeroDegree));
+    }
 
     const BinaryMul mul;
     long long integralDegree = (long long)(degree);

@@ -3,6 +3,7 @@
 
 #define MAX_NUMBER 1e18
 #define MAX_DEGREE 10000
+#define  PRECISION 1e-20
 
 #include <exception>
 #include <typeinfo>

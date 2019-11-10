@@ -17,19 +17,18 @@ try
     cout.precision(10);
     map_int_LD inputMap;
     inputMap.insert({0, -2});
-    inputMap.insert({1, 3});
-    //inputMap.insert({2, 4});
+//    inputMap.insert({1, 1});
+//    inputMap.insert({6, 4});
     const Node& pol = Polinom(inputMap);
     pol.print(cout);
     cout << endl;
 
     map_int_LD inputMapTwo;
-    inputMapTwo.insert({0, 9});
-//    inputMapTwo.insert({2, 0});
+    inputMapTwo.insert({0, 10000});
+//    inputMapTwo.insert({2, -1});
     const Node& polTwo = Polinom(inputMapTwo);
     polTwo.print(cout);
     cout << endl;
-    cout << "-----------------------------" << endl;
 
     const Node& Add = BinaryAdd();
 
@@ -38,6 +37,9 @@ try
 //    const NodeTwoArguments& oper = BinaryMul();
 //    const NodeTwoArguments& oper = BinaryDiv();
     const NodeTwoArguments& oper = BinaryPow();
+
+    oper.print(cout);
+    cout << endl << "-----------------------------" << endl;
     const Polinom& resultedPolinom = dynamic_cast < const Polinom& > (oper.getValue(pol, polTwo));
 
     resultedPolinom.print(cout);

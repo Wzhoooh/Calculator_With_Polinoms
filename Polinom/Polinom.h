@@ -10,7 +10,6 @@ using std::map;
 using std::pair;
 
 typedef map < int, long double > map_int_LD;
-typedef map < int, long double >::iterator map_int_LD_it;
 
 class Polinom: public NodeZeroArguments
 {

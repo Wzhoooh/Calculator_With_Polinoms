@@ -8,9 +8,10 @@ Polinom::Polinom(const Polinom& source)//: Polinom(source.getCoefficients())
 Polinom::Polinom(const map_int_LD coefficients)
 {
     this->coefficients = coefficients;
+
     // we are deleting elements with zero coefficients
-    for (map_int_LD_it i = this->coefficients.begin(); i != this->coefficients.end();)
-        if (i->second == 0)
+    for (map_int_LD::iterator i = this->coefficients.begin(); i != this->coefficients.end();)
+        if (i->first != 0 && i->second == 0)
             this->coefficients.erase(i++);
         else
             ++i;
