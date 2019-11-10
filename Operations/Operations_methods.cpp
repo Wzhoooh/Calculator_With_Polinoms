@@ -149,10 +149,9 @@ const Node& BinaryPow::getValue(const Node& polinomFirst, const Node& polinomSec
     const Polinom& pointerPolinomSecond = dynamic_cast < const Polinom& > (polinomSecond);
     map_int_LD  coefficientsFirst =  pointerPolinomFirst.getCoefficients();
     map_int_LD coefficientsSecond = pointerPolinomSecond.getCoefficients();
-    map_int_LD resultedCoefficients = coefficientsFirst;
 
     long double degree = coefficientsSecond.begin()->second;
-std::cout << "degree: " << degree << std::endl;
+
     if (coefficientsSecond.size() != 1 || coefficientsSecond.begin()->first != 0)
         throw X_In_Degree();
 
@@ -162,31 +161,24 @@ std::cout << "degree: " << degree << std::endl;
     if ((coefficientsFirst.size() != 1 && (long long)degree != degree) || degree < 0)
         throw Invalid_Degree_Of_X();
 
-    if (degree == 0)
+    if (degree == 1)
+        return polinomFirst;
+
+    const BinaryMul mul;
+    long long integralDegree = (long long)(degree);
+    map_int_LD returnedCoefficients = coefficientsSecond;
+
+    if (integralDegree % 2 != 0)
     {
-        resultedCoefficients.insert({0, 1});
-        return *(new Polinom(resultedCoefficients));
+        returnedCoefficients.begin()->second--;
+        return mul.getValue(polinomFirst, this->getValue(polinomFirst, *(new Polinom(returnedCoefficients))));
     }
-
-const Node& p = pointerPolinomFirst.getValue();
-(dynamic_cast < const Polinom& > (p)).print(std::cout);
-std::cout << std::endl;
-
-    //Node& resultedPolinom = const_cast < Node& > ((dynamic_cast < const Polinom& > (polinomFirst)).getValue());
-    Node& resultedPolinom = const_cast < Node& > (pointerPolinomFirst.getValue());
-    const BinaryMul& mul = BinaryMul();
-    while (degree > 0)
+    else
     {
-        (dynamic_cast < const Polinom& > (resultedPolinom)).print(std::cout);
-        std::cout << std::endl;
-        resultedPolinom = mul.getValue(resultedPolinom, polinomFirst);
-        degree--;
+        returnedCoefficients.begin()->second /= 2;
+        const Node& returnedPolinom = this->getValue(polinomFirst, *(new Polinom(returnedCoefficients)));
+        return mul.getValue(returnedPolinom, returnedPolinom);
     }
-
-(dynamic_cast < const Polinom& > (resultedPolinom)).print(std::cout);
-std::cout << "---------";
-
-    return (dynamic_cast < const Polinom& > (resultedPolinom)).getValue();
 }
 int BinaryPow::getNumArguments() const
 {
