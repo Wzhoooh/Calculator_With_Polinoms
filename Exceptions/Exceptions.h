@@ -11,7 +11,7 @@ using std::bad_cast;
 
 class           Div_By_Zero; /// a / 0
 class        Too_Big_Number; /// infinity
-class   Too_Big_Degree_Of_X; /// X^infinity
+class        Too_Big_Degree; /// X^infinity
 class   Invalid_Degree_Of_X; /// X^(not Z) || X^(-1)
 class           X_In_Degree; /// a ^ ( f(X) )
 class              Div_By_X; /// a / ( f(X) )
@@ -32,7 +32,7 @@ public:
     const char* what() const throw() { return "too big number"; }
 };
 
-class Too_Big_Degree_Of_X: public exception
+class Too_Big_Degree: public exception
 {
 public:
     const char* what() const throw() { return "too big degree"; }

@@ -26,6 +26,12 @@ const Node& Polinom::getValue() const
     return *(new Polinom(*this));
 }
 
+const Polinom& Polinom::operator = (const Polinom& source)
+{
+    this->coefficients = source.coefficients;
+    return *(new Polinom(*this));
+}
+
 map_int_LD Polinom::getCoefficients() const
 {
     return coefficients;

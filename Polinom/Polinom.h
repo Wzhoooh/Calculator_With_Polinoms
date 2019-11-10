@@ -23,6 +23,7 @@ public:
     Polinom(const map_int_LD);
     int getNumArguments() const final;
     const Node& getValue() const final;
+    const Polinom& operator = (const Polinom&);
 
     map_int_LD getCoefficients() const; /// copies coefficients
     void print(ostream& os) const;
