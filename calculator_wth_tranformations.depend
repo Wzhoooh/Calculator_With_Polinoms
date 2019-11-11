@@ -1,8 +1,8 @@
 # depslib dependency file v1.0
-1573484022 source:c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\calculator_methods.cpp
+1573489042 source:c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\calculator_methods.cpp
 	"Calculator.h"
 
-1573413408 source:c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\main.cpp
+1573489094 source:c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\main.cpp
 	<iostream>
 	<climits>
 	"Calculator.h"
@@ -20,7 +20,7 @@
 1573484552 source:c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\polinom\polinom_methods.cpp
 	"Polinom.h"
 
-1573484444 c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\calculator.h
+1573487222 c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\calculator.h
 	"Node/Node.h"
 	"Exceptions/Exceptions.h"
 	"Polinom/Polinom.h"
@@ -67,12 +67,13 @@
 1573483837 c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\node\node.h
 	"../def/def.h"
 
-1573484594 c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\def\def.h
+1573485332 c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\def\def.h
 	<iostream>
+	<string>
+	<vector>
+	<list>
 	<map>
 	<utility>
-	<string>
-	<list>
-	<vector>
+	<algorithm>
 	<functional>
 

@@ -42,6 +42,7 @@
 		<Unit filename="Parser/Parser_methods.cpp" />
 		<Unit filename="Polinom/Polinom.h" />
 		<Unit filename="Polinom/Polinom_methods.cpp" />
+		<Unit filename="def/def.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />

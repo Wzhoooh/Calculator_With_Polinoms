@@ -18,7 +18,7 @@ private:
 public:
     Calculator() = delete;
     Calculator(list_node expression); /// pulled by Parser
-    const Node& getResult();
+    const Node& getResult() throw(Invalid_Order);
 };
 
 
