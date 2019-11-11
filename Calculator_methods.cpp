@@ -2,55 +2,49 @@
 
 Calculator::Calculator(list_node expression)
 {
-    this->straightNotation = expression;
-    this->backNotation = this->straightNotation;
+    this->backNotation = expression;
+    //this->straightNotation = nullptr;
 }
 
 const Node& Calculator::getResult() throw(Invalid_Order)
 {
+    stack_node resultedStack;
+
     for (list_node::iterator i = backNotation.begin(); i != backNotation.end(); i++)
     {
         const Node& element = *i;
+        if (element.getNumArguments() == 0) /// Polinom
+            resultedStack.push(element);
 
-        if (element.getNumArguments() == 1) /// we are taking one Node before element
+        else if (element.getNumArguments() == 1)
         {
-            const Node& operation = (const Node&)(*i);
-            list_node::iterator polinomIt = i;
-            list_node::iterator operationIt = i;
-            advance(polinomIt, -1);
-            if (polinomIt == backNotation.end())
+            if (resultedStack.size() < 1)
                 throw Invalid_Order();
 
-            const Node& polinom = (const Node&)(*polinomIt);
-            const Node& result = (dynamic_cast < const NodeOneArgument& > (operation)).getValue(polinom);
-            advance(i, 1);
-            backNotation.erase(polinomIt);
-            backNotation.erase(operationIt);
-            backNotation.insert(i, result);
+            const Node& operation = element;
+            const Node& polinom = resultedStack.top();
+            resultedStack.pop();
+            const Node& newPolinom = (dynamic_cast < const NodeOneArgument& > (element)).getValue(polinom);
+            resultedStack.push(newPolinom);
         }
-        if (element.getNumArguments() == 2) /// we are taking two Nodes before element
+        else if (element.getNumArguments() == 2)
         {
-            const Node& operation = (const Node&)(*i);
-            list_node::iterator  polinomFirstIt = i;
-            list_node::iterator polinomSecondIt = i;
-            list_node::iterator operationIt = i;
-            advance( polinomFirstIt, -2);
-            advance(polinomSecondIt, -1);
-            if (polinomFirstIt == backNotation.end() || polinomSecondIt == backNotation.end())
+            if (resultedStack.size() < 2)
                 throw Invalid_Order();
 
-            const Node& polinomFirst = (const Node&)(*polinomFirstIt);
-            const Node& polinomSecond = (const Node&)(*polinomSecondIt);
-            const Node& result = (dynamic_cast < const NodeTwoArguments& > (operation)).getValue(polinomFirst, polinomSecond);
-            advance(i, 1);
-            backNotation.erase(polinomFirstIt);
-            backNotation.erase(polinomSecondIt);
-            backNotation.erase(operationIt);
-            backNotation.insert(i, result);
+            const Node& operation = element;
+            const Node& polinomSecond = resultedStack.top();
+            resultedStack.pop();
+            const Node& polinomFirst = resultedStack.top();
+            resultedStack.pop();
+            const Node& newPolinom = (dynamic_cast < const NodeTwoArguments& > (element)).getValue(polinomFirst, polinomSecond);
+            resultedStack.push(newPolinom);
         }
+        else
+            throw Invalid_Order();
     }
-    if (backNotation.size() != 1)
+    if (resultedStack.size() != 1)
         throw Invalid_Order();
 
-    return (const Node&)(*backNotation.begin());
+    return resultedStack.top();
 }
