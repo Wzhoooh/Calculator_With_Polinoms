@@ -6,24 +6,16 @@
 #include "../Polinom/Polinom.h"
 #include "../Operations/Operations.h"
 
-#include <string>
-#include <list>
-#include <functional>
-
-using std::string;
-using std::list;
-using std::reference_wrapper;
-
 class Parser
 {
 private:
-    list < reference_wrapper < const Node > > expression;
-    string strExpression;
+    list_node expression;
+    std::string strExpression;
 
 public:
     Parser() = delete;
-    Parser(const string& inputStr) throw(/**/);
-    list < reference_wrapper < const Node > > getExression() const;
+    Parser(const std::string& inputStr) throw(/**/);
+    list_node getExression() const;
 };
 
 #endif // PARSER_H_INCLUDED

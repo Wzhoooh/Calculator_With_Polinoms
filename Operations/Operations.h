@@ -13,7 +13,7 @@ public:
     UnaryPlus() = default;
     const Node& getValue(const Node& polinom) const throw(bad_cast) final;
     int getNumArguments() const final;
-    void print(ostream& os) const;
+    void print(std::ostream& os) const;
 };
 
 class UnaryMinus: public NodeOneArgument
@@ -24,7 +24,7 @@ public:
     UnaryMinus() = default;
     const Node& getValue(const Node& polinom) const throw(bad_cast) final;
     int getNumArguments() const final;
-    void print(ostream& os) const;
+    void print(std::ostream& os) const;
 };
 
 
@@ -37,7 +37,7 @@ public:
     BinaryAdd() = default;
     const Node& getValue(const Node& polinomFirst, const Node& polinomSecond) const throw(Too_Big_Number, bad_cast) final;
     int getNumArguments() const final;
-    void print(ostream& os) const;
+    void print(std::ostream& os) const;
 };
 
 class BinarySub: public NodeTwoArguments
@@ -48,7 +48,7 @@ public:
     BinarySub() = default;
     const Node& getValue(const Node& polinomFirst, const Node& polinomSecond) const throw(Too_Big_Number, bad_cast) final;
     int getNumArguments() const final;
-    void print(ostream& os) const;
+    void print(std::ostream& os) const;
 };
 
 class BinaryMul: public NodeTwoArguments
@@ -59,7 +59,7 @@ public:
     BinaryMul() = default;
     const Node& getValue(const Node& polinomFirst, const Node& polinomSecond) const throw(Too_Big_Number, Too_Big_Degree, bad_cast) final;
     int getNumArguments() const final;
-    void print(ostream& os) const;
+    void print(std::ostream& os) const;
 };
 
 class BinaryDiv: public NodeTwoArguments
@@ -70,7 +70,7 @@ public:
     BinaryDiv() = default;
     const Node& getValue(const Node& polinomFirst, const Node& polinomSecond) const throw(Too_Big_Number, Div_By_X, Div_By_Zero, bad_cast) final;
     int getNumArguments() const final;
-    void print(ostream& os) const;
+    void print(std::ostream& os) const;
 };
 
 class BinaryPow: public NodeTwoArguments
@@ -81,7 +81,7 @@ public:
     BinaryPow() = default;
     const Node& getValue(const Node& polinomFirst, const Node& polinomSecond) const throw(Too_Big_Number, Too_Big_Degree, X_In_Degree, Invalid_Degree_Of_X, bad_cast) final;
     int getNumArguments() const final;
-    void print(ostream& os) const;
+    void print(std::ostream& os) const;
 };
 
 #endif // OPERATIONS_H_INCLUDED

@@ -1,12 +1,9 @@
 #ifndef EXCEPTIONS_H_INCLUDED
 #define EXCEPTIONS_H_INCLUDED
 
-#define MAX_NUMBER 1e18
-#define MAX_DEGREE 10000
-#define  PRECISION 1e-20
-
 #include <exception>
 #include <typeinfo>
+
 using std::exception;
 using std::bad_cast;
 

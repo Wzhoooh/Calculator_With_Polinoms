@@ -38,7 +38,7 @@ map_int_LD Polinom::getCoefficients() const
     return coefficients;
 }
 
-void Polinom::print(ostream& os) const
+void Polinom::print(std::ostream& os) const
 {
     for (auto& i : coefficients)
     {

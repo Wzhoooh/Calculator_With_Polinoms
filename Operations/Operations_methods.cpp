@@ -17,7 +17,7 @@ int UnaryMinus::getNumArguments() const
 {
     return 1;
 }
-void UnaryMinus::print(ostream& os) const
+void UnaryMinus::print(std::ostream& os) const
 {
     os << "Unary_Minus ";
 }
@@ -30,7 +30,7 @@ int UnaryPlus::getNumArguments() const
 {
     return 1;
 }
-void UnaryPlus::print(ostream& os) const
+void UnaryPlus::print(std::ostream& os) const
 {
     os << "Unary_Plus ";
 }
@@ -58,7 +58,7 @@ int BinaryAdd::getNumArguments() const
 {
     return 2;
 }
-void BinaryAdd::print(ostream& os) const
+void BinaryAdd::print(std::ostream& os) const
 {
     os << "Binary_Add ";
 }
@@ -73,7 +73,7 @@ int BinarySub::getNumArguments() const
 {
     return 2;
 }
-void BinarySub::print(ostream& os) const
+void BinarySub::print(std::ostream& os) const
 {
     os << "Binary_Sub ";
 }
@@ -109,7 +109,7 @@ int BinaryMul::getNumArguments() const
 {
     return 2;
 }
-void BinaryMul::print(ostream& os) const
+void BinaryMul::print(std::ostream& os) const
 {
     os << "Binary_Mul ";
 }
@@ -138,7 +138,7 @@ int BinaryDiv::getNumArguments() const
 {
     return 2;
 }
-void BinaryDiv::print(ostream& os) const
+void BinaryDiv::print(std::ostream& os) const
 {
     os << "Binary_Div ";
 }
@@ -191,7 +191,7 @@ int BinaryPow::getNumArguments() const
 {
     return 2;
 }
-void BinaryPow::print(ostream& os) const
+void BinaryPow::print(std::ostream& os) const
 {
     os << "Binary_Pow ";
 }

@@ -3,14 +3,6 @@
 
 #include "../Node/Node.h"
 
-#include <map>
-#include <utility>
-
-using std::map;
-using std::pair;
-
-typedef map < int, long double > map_int_LD;
-
 class Polinom: public NodeZeroArguments
 {
 private:
@@ -25,7 +17,7 @@ public:
     const Polinom& operator = (const Polinom&);
 
     map_int_LD getCoefficients() const; /// copies coefficients
-    void print(ostream& os) const;
+    void print(std::ostream& os) const;
 };
 
 #endif // POLINOM_H_INCLUDED

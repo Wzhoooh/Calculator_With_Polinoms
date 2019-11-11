@@ -1,6 +1,6 @@
 #include "Parser.h"
 
-Parser::Parser(const string& inputStr) throw(/**/)
+Parser::Parser(const std::string& inputStr) throw(/**/)
 {
     const Node& n = Polinom();
     expression.push_back(n);
@@ -8,7 +8,7 @@ Parser::Parser(const string& inputStr) throw(/**/)
 
 }
 
-list < reference_wrapper < const Node > > Parser::getExression() const
+list_node Parser::getExression() const
 {
 
 }

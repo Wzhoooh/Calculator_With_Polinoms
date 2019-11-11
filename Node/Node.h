@@ -1,17 +1,13 @@
 #ifndef NODE_H_INCLUDED
 #define NODE_H_INCLUDED
 
-#include <iostream>
-#include <vector>
-
-using std::ostream;
-using std::vector;
+#include "../def/def.h"
 
 class Node
 {
 public:
     virtual int getNumArguments() const = 0;
-    virtual void print(ostream& os) const = 0;
+    virtual void print(std::ostream& os) const = 0;
 };
 
 
