@@ -53,7 +53,7 @@ void Polinom::print(std::ostream& os) const
             if (it != coefficients.rbegin())
                 os << " + ";
 
-        os << abs(it->second);
+        os << fabs(it->second);
 
         if (it->first == 0)
             ;

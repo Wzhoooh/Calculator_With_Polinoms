@@ -1,15 +1,15 @@
 # depslib dependency file v1.0
-1573575621 source:c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\calculator_methods.cpp
+1573588247 source:c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\calculator_methods.cpp
 	"Calculator.h"
 
-1573575858 source:c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\main.cpp
+1573587746 source:c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\main.cpp
 	<iostream>
 	<climits>
 	"Calculator.h"
 
 1573147492 source:c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\numberx\numberx_methods.cpp
 
-1573575395 source:c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\operations\operations_methods.cpp
+1573588247 source:c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\operations\operations_methods.cpp
 	"Operations.h"
 	<iostream>
 	<cstdlib>
@@ -17,10 +17,10 @@
 1573484540 source:c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\parser\parser_methods.cpp
 	"Parser.h"
 
-1573574941 source:c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\polinom\polinom_methods.cpp
+1573587859 source:c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\polinom\polinom_methods.cpp
 	"Polinom.h"
 
-1573569651 c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\calculator.h
+1573588247 c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\calculator.h
 	"def/def.h"
 	"Exceptions/Exceptions.h"
 	"Node/Node.h"
@@ -36,7 +36,7 @@
 1573561963 c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\polinom\polinom.h
 	"../Node/Node.h"
 
-1573561963 c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\operations\operations.h
+1573588247 c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\operations\operations.h
 	"../Polinom/Polinom.h"
 	"../Exceptions/Exceptions.h"
 

@@ -15,12 +15,12 @@ private:
     list_node straightNotation;
     list_node backNotation;
 
-    void reverseToBackNotation() throw (Invalid_Order, std::bad_cast);
+    void reverseToBackNotation();
 
 public:
     Calculator() = delete;
     Calculator(list_node expression); /// pulled by Parser
-    const Node& getResult() throw(Invalid_Order);
+    const Node& getResult();
 
     void print(std::ostream& os) const;
 };

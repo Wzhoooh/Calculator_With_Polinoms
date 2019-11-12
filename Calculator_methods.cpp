@@ -6,19 +6,27 @@ Calculator::Calculator(list_node expression)
     reverseToBackNotation();
 }
 
-void Calculator::reverseToBackNotation() throw (Invalid_Order, std::bad_cast)
+void Calculator::reverseToBackNotation()
 {
+    bool polinomPermitted = true;
     stack_node operationStack;
 
     for (list_node::iterator i = straightNotation.begin(); i != straightNotation.end(); i++)
     {
         const Node& element = *i;
+
         if (element.getNumArguments() == 0) /// it is Polinom
         {
+            if (!polinomPermitted)
+                throw Invalid_Order();
+
+            polinomPermitted = false;
             backNotation.push_back(element);
         }
         else if (element.getNumArguments() == 1 || element.getNumArguments() == 2) /// operation
         {
+            polinomPermitted = true;
+
             while (operationStack.size() > 0 && ((const Node&)operationStack.top()).getPriority() >= element.getPriority())
             {
                 backNotation.push_back(operationStack.top());
@@ -31,10 +39,16 @@ void Calculator::reverseToBackNotation() throw (Invalid_Order, std::bad_cast)
 
         if (element.getPriority() == Bracket::OP_BRACKET) /// opened bracket
         {
+            if (!polinomPermitted)
+                throw Invalid_Order();
+
+            polinomPermitted = true;
             operationStack.push(element);
         }
         else if (element.getPriority() == Bracket::CL_BRACKET) /// closed bracket
         {
+            polinomPermitted = false;
+
             while (operationStack.size() > 0 && ((const Node&)operationStack.top()).getPriority() != Bracket::OP_BRACKET)
             {
                 backNotation.push_back(operationStack.top());
@@ -45,8 +59,8 @@ void Calculator::reverseToBackNotation() throw (Invalid_Order, std::bad_cast)
 
             operationStack.pop();
         }
-
     }
+
     while (operationStack.size() > 0)
     {
         if (((const Node&)operationStack.top()).getPriority() == Bracket::OP_BRACKET)
@@ -56,7 +70,7 @@ void Calculator::reverseToBackNotation() throw (Invalid_Order, std::bad_cast)
     }
 }
 
-const Node& Calculator::getResult() throw(Invalid_Order)
+const Node& Calculator::getResult()
 {
     stack_node resultedStack;
 

@@ -15,25 +15,17 @@ int main()
 try
 {
     cout.precision(10);
-    const Node& pol_1 = Polinom(map_int_LD({ {0, 5}, {2, 3} }));
-    pol_1.print(cout);
-    cout << endl;
-
+    const Node& pol_1 = Polinom(map_int_LD{ {0, 5.44}, {2, 3} });
     const Node& pol_2 = Polinom(map_int_LD({ {1, 5}, {2, 3} }));
-    pol_2.print(cout);
-    cout << endl;
-
     const Node& pol_3 = Polinom(map_int_LD({ {0, 5}, {2, 3} }));
-    pol_3.print(cout);
-    cout << endl;
-
     const Node& pol_4 = Polinom(map_int_LD({ {0, 7} }));
-    pol_3.print(cout);
-    cout << endl;
+    const Node& pol_5 = Polinom(map_int_LD({ {0, 2} }));
+    const Node& pol_6 = Polinom(map_int_LD({ {0, -0.5} }));
 
     const Node& add = BinaryAdd();
     const Node& minus = UnaryMinus();
     const Node& mul = BinaryMul();
+    const Node& div = BinaryDiv();
     const Node& pow = BinaryPow();
     const Node& op_br = Bracket(true);
     const Node& cl_br = Bracket(false);
@@ -47,13 +39,19 @@ try
     l.push_back(add);
     l.push_back(pol_2);
     l.push_back(cl_br);
+    l.push_back(pow);
     l.push_back(pol_4);
     l.push_back(pow);
+    l.push_back(pol_6);
+    l.push_back(div);
+    l.push_back(pol_5);
+
     Calculator c(l);
-    const Node& r = c.getResult();
-    r.print(cout);
     cout << endl << "-----------------------------" << endl;
     c.print(cout);
+    cout << endl << "-----------------------------" << endl;
+    const Node& r = c.getResult();
+    r.print(cout);
     return 0;
 
 //    const NodeTwoArguments& oper = BinarySub();
