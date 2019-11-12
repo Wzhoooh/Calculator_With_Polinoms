@@ -17,14 +17,19 @@ Polinom::Polinom(const map_int_LD coefficients)
             ++i;
 }
 
+const Node& Polinom::getValue() const
+{
+    return *(new Polinom(*this));
+}
+
 int Polinom::getNumArguments() const
 {
     return 0; /// number of Polinom Arguments
 }
 
-const Node& Polinom::getValue() const
+int Polinom::getPriority() const
 {
-    return *(new Polinom(*this));
+    return MAX_PRIORITY;
 }
 
 const Polinom& Polinom::operator = (const Polinom& source)

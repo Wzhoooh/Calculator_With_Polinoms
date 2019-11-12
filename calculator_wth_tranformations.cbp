@@ -32,6 +32,8 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Brackets/Brackets.h" />
+		<Unit filename="Brackets/Brackets_methods.cpp" />
 		<Unit filename="Calculator.h" />
 		<Unit filename="Calculator_methods.cpp" />
 		<Unit filename="Exceptions/Exceptions.h" />

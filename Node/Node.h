@@ -6,7 +6,13 @@
 class Node
 {
 public:
+    static constexpr long double MAX_NUMBER = 1e18;
+    static constexpr long double MAX_DEGREE = 10000;
+    static constexpr long double  PRECISION = 1e-20;
+    static constexpr int MAX_PRIORITY = 100;
+
     virtual int getNumArguments() const = 0;
+    virtual int getPriority() const = 0;
     virtual void print(std::ostream& os) const = 0;
 };
 

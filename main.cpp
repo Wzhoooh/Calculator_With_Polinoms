@@ -30,14 +30,18 @@ try
     const Node& add = BinaryAdd();
     const Node& minus = UnaryMinus();
     const Node& mul = BinaryMul();
+    const Node& op_br = Bracket(true);
+    const Node& cl_br = Bracket(false);
 
     list_node l;
     l.push_back(pol_3);
-    l.push_back(pol_1);
-    l.push_back(pol_2);
-    l.push_back(add);
-    l.push_back(minus);
     l.push_back(mul);
+    l.push_back(minus);
+    l.push_back(op_br);
+    l.push_back(pol_1);
+    l.push_back(add);
+    l.push_back(pol_2);
+    l.push_back(cl_br);
     Calculator c(l);
     const Node& r = c.getResult();
     r.print(cout);

@@ -17,6 +17,10 @@ int UnaryMinus::getNumArguments() const
 {
     return 1;
 }
+int UnaryMinus::getPriority() const
+{
+    return MAX_PRIORITY - 3;
+}
 void UnaryMinus::print(std::ostream& os) const
 {
     os << "Unary_Minus ";
@@ -29,6 +33,10 @@ const Node& UnaryPlus::getValue(const Node& polinom) const throw(bad_cast)
 int UnaryPlus::getNumArguments() const
 {
     return 1;
+}
+int UnaryPlus::getPriority() const
+{
+    return MAX_PRIORITY - 3;
 }
 void UnaryPlus::print(std::ostream& os) const
 {
@@ -58,6 +66,10 @@ int BinaryAdd::getNumArguments() const
 {
     return 2;
 }
+int BinaryAdd::getPriority() const
+{
+    return MAX_PRIORITY - 6;
+}
 void BinaryAdd::print(std::ostream& os) const
 {
     os << "Binary_Add ";
@@ -72,6 +84,10 @@ const Node& BinarySub::getValue(const Node& polinomFirst, const Node& polinomSec
 int BinarySub::getNumArguments() const
 {
     return 2;
+}
+int BinarySub::getPriority() const
+{
+    return MAX_PRIORITY - 6;
 }
 void BinarySub::print(std::ostream& os) const
 {
@@ -109,6 +125,10 @@ int BinaryMul::getNumArguments() const
 {
     return 2;
 }
+int BinaryMul::getPriority() const
+{
+    return MAX_PRIORITY - 5;
+}
 void BinaryMul::print(std::ostream& os) const
 {
     os << "Binary_Mul ";
@@ -137,6 +157,10 @@ const Node& BinaryDiv::getValue(const Node& polinomFirst, const Node& polinomSec
 int BinaryDiv::getNumArguments() const
 {
     return 2;
+}
+int BinaryDiv::getPriority() const
+{
+    return MAX_PRIORITY - 5;
 }
 void BinaryDiv::print(std::ostream& os) const
 {
@@ -190,6 +214,10 @@ const Node& BinaryPow::getValue(const Node& polinomFirst, const Node& polinomSec
 int BinaryPow::getNumArguments() const
 {
     return 2;
+}
+int BinaryPow::getPriority() const
+{
+    return MAX_PRIORITY - 4;
 }
 void BinaryPow::print(std::ostream& os) const
 {

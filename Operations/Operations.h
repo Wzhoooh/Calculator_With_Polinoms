@@ -13,6 +13,7 @@ public:
     UnaryPlus() = default;
     const Node& getValue(const Node& polinom) const throw(bad_cast) final;
     int getNumArguments() const final;
+    int getPriority() const final;
     void print(std::ostream& os) const;
 };
 
@@ -24,6 +25,7 @@ public:
     UnaryMinus() = default;
     const Node& getValue(const Node& polinom) const throw(bad_cast) final;
     int getNumArguments() const final;
+    int getPriority() const final;
     void print(std::ostream& os) const;
 };
 
@@ -37,6 +39,7 @@ public:
     BinaryAdd() = default;
     const Node& getValue(const Node& polinomFirst, const Node& polinomSecond) const throw(Too_Big_Number, bad_cast) final;
     int getNumArguments() const final;
+    int getPriority() const final;
     void print(std::ostream& os) const;
 };
 
@@ -48,6 +51,7 @@ public:
     BinarySub() = default;
     const Node& getValue(const Node& polinomFirst, const Node& polinomSecond) const throw(Too_Big_Number, bad_cast) final;
     int getNumArguments() const final;
+    int getPriority() const final;
     void print(std::ostream& os) const;
 };
 
@@ -59,6 +63,7 @@ public:
     BinaryMul() = default;
     const Node& getValue(const Node& polinomFirst, const Node& polinomSecond) const throw(Too_Big_Number, Too_Big_Degree, bad_cast) final;
     int getNumArguments() const final;
+    int getPriority() const final;
     void print(std::ostream& os) const;
 };
 
@@ -70,6 +75,7 @@ public:
     BinaryDiv() = default;
     const Node& getValue(const Node& polinomFirst, const Node& polinomSecond) const throw(Too_Big_Number, Div_By_X, Div_By_Zero, bad_cast) final;
     int getNumArguments() const final;
+    int getPriority() const final;
     void print(std::ostream& os) const;
 };
 
@@ -81,6 +87,7 @@ public:
     BinaryPow() = default;
     const Node& getValue(const Node& polinomFirst, const Node& polinomSecond) const throw(Too_Big_Number, Too_Big_Degree, X_In_Degree, Invalid_Degree_Of_X, bad_cast) final;
     int getNumArguments() const final;
+    int getPriority() const final;
     void print(std::ostream& os) const;
 };
 
