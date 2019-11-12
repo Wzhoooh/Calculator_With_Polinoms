@@ -27,9 +27,14 @@ try
     pol_3.print(cout);
     cout << endl;
 
+    const Node& pol_4 = Polinom(map_int_LD({ {0, 7} }));
+    pol_3.print(cout);
+    cout << endl;
+
     const Node& add = BinaryAdd();
     const Node& minus = UnaryMinus();
     const Node& mul = BinaryMul();
+    const Node& pow = BinaryPow();
     const Node& op_br = Bracket(true);
     const Node& cl_br = Bracket(false);
 
@@ -42,9 +47,13 @@ try
     l.push_back(add);
     l.push_back(pol_2);
     l.push_back(cl_br);
+    l.push_back(pol_4);
+    l.push_back(pow);
     Calculator c(l);
     const Node& r = c.getResult();
     r.print(cout);
+    cout << endl << "-----------------------------" << endl;
+    c.print(cout);
     return 0;
 
 //    const NodeTwoArguments& oper = BinarySub();
@@ -66,15 +75,15 @@ try
 }
 catch (bad_cast& e)
 {
-    cout << "invalid order" << endl;
+    cerr << "invalid order" << endl;
 }
 catch (exception& e)
 {
-    cout << e.what() << endl;
+    cerr << e.what() << endl;
 }
 catch(...)
 {
-    cout << "some exception" << endl;
+    cerr << "unknown exception" << endl;
 }
 }
 

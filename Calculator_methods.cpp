@@ -14,7 +14,9 @@ void Calculator::reverseToBackNotation() throw (Invalid_Order, std::bad_cast)
     {
         const Node& element = *i;
         if (element.getNumArguments() == 0) /// it is Polinom
+        {
             backNotation.push_back(element);
+        }
         else if (element.getNumArguments() == 1 || element.getNumArguments() == 2) /// operation
         {
             while (operationStack.size() > 0 && ((const Node&)operationStack.top()).getPriority() >= element.getPriority())
@@ -24,8 +26,13 @@ void Calculator::reverseToBackNotation() throw (Invalid_Order, std::bad_cast)
             }
             operationStack.push(element);
         }
-        else if (element.getPriority() == Bracket::OP_BRACKET) /// opened bracket
+        else if (element.getNumArguments() > 0)
+            throw Invalid_Operation();
+
+        if (element.getPriority() == Bracket::OP_BRACKET) /// opened bracket
+        {
             operationStack.push(element);
+        }
         else if (element.getPriority() == Bracket::CL_BRACKET) /// closed bracket
         {
             while (operationStack.size() > 0 && ((const Node&)operationStack.top()).getPriority() != Bracket::OP_BRACKET)
@@ -38,6 +45,7 @@ void Calculator::reverseToBackNotation() throw (Invalid_Order, std::bad_cast)
 
             operationStack.pop();
         }
+
     }
     while (operationStack.size() > 0)
     {
@@ -91,5 +99,19 @@ const Node& Calculator::getResult() throw(Invalid_Order)
 
 void Calculator::print(std::ostream& os) const
 {
+    os << "Straight:" << std::endl;
+    for (auto i : straightNotation)
+    {
+        ((const Node&)i).print(os);
+        os << std::endl;
+    }
 
+    os << std::endl;
+
+    os << "Back:" << std::endl;
+    for (auto i : backNotation)
+    {
+        ((const Node&)i).print(os);
+        os << std::endl;
+    }
 }

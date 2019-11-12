@@ -23,7 +23,7 @@ int UnaryMinus::getPriority() const
 }
 void UnaryMinus::print(std::ostream& os) const
 {
-    os << "Unary_Minus ";
+    os << ".-";
 }
 
 const Node& UnaryPlus::getValue(const Node& polinom) const throw(bad_cast)
@@ -40,7 +40,7 @@ int UnaryPlus::getPriority() const
 }
 void UnaryPlus::print(std::ostream& os) const
 {
-    os << "Unary_Plus ";
+    os << ".+";
 }
 
 ///----------------------Binary_Operations----------------------///
@@ -72,7 +72,7 @@ int BinaryAdd::getPriority() const
 }
 void BinaryAdd::print(std::ostream& os) const
 {
-    os << "Binary_Add ";
+    os << "+";
 }
 
 const Node& BinarySub::getValue(const Node& polinomFirst, const Node& polinomSecond) const throw(Too_Big_Number, bad_cast)
@@ -91,7 +91,7 @@ int BinarySub::getPriority() const
 }
 void BinarySub::print(std::ostream& os) const
 {
-    os << "Binary_Sub ";
+    os << "-";
 }
 
 const Node& BinaryMul::getValue(const Node& polinomFirst, const Node& polinomSecond) const throw(Too_Big_Number, Too_Big_Degree, bad_cast)
@@ -131,7 +131,7 @@ int BinaryMul::getPriority() const
 }
 void BinaryMul::print(std::ostream& os) const
 {
-    os << "Binary_Mul ";
+    os << "*";
 }
 
 const Node& BinaryDiv::getValue(const Node& polinomFirst, const Node& polinomSecond) const throw(Too_Big_Number, Div_By_X, Div_By_Zero, bad_cast)
@@ -164,7 +164,7 @@ int BinaryDiv::getPriority() const
 }
 void BinaryDiv::print(std::ostream& os) const
 {
-    os << "Binary_Div ";
+    os << "/";
 }
 
 const Node& BinaryPow::getValue(const Node& polinomFirst, const Node& polinomSecond) const throw(Too_Big_Number, Too_Big_Degree, X_In_Degree, Invalid_Degree_Of_X, bad_cast)
@@ -221,7 +221,7 @@ int BinaryPow::getPriority() const
 }
 void BinaryPow::print(std::ostream& os) const
 {
-    os << "Binary_Pow ";
+    os << "^";
 }
 
 

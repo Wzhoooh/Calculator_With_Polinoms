@@ -16,6 +16,7 @@ class              Div_By_X; /// a / ( f(X) )
 
 class Invalid_Order;
 class Invalid_Cast;
+class Invalid_Operation;
 
 
 class Div_By_Zero: public exception
@@ -66,5 +67,10 @@ public:
     const char* what() const throw() { return "invalid cast"; }
 };
 
+class Invalid_Operation: public exception
+{
+public:
+    const char* what() const throw() { return "invalid cast"; }
+};
 
 #endif // EXCEPTIONS_H_INCLUDED

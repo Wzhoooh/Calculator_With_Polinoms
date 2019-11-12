@@ -45,14 +45,21 @@ map_int_LD Polinom::getCoefficients() const
 
 void Polinom::print(std::ostream& os) const
 {
-    for (auto& i : coefficients)
+    for (auto it = coefficients.rbegin(); it != coefficients.rend(); it++)
     {
-        os << "+ ";
-        if (i.first == 0)
-            os << i.second << " ";
-        else if (i.first == 1)
-            os << i.second << "*x ";
+        if (it->second < 0)
+            os << " - ";
         else
-            os << i.second << "*x^" << i.first << " ";
+            if (it != coefficients.rbegin())
+                os << " + ";
+
+        os << abs(it->second);
+
+        if (it->first == 0)
+            ;
+        else if (it->first == 1)
+            os << "*x";
+        else
+            os << "*x^" << it->first;
     }
 }

@@ -9,6 +9,7 @@
 #include <stack>
 #include <utility>
 #include <algorithm>
+#include <iterator>
 #include <functional>
 
 class Calculator;
