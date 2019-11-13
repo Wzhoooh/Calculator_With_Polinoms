@@ -56,13 +56,17 @@ void Polinom::print(std::ostream& os) const
             if (it != coefficients.rbegin())
                 os << " + ";
 
-        os << fabs(it->second);
+        if (it->first == 0)
+            os << fabs(it->second);
+
+        else if (fabs(it->second) != 1)
+            os << fabs(it->second) << "*";
 
         if (it->first == 0)
             ;
         else if (it->first == 1)
-            os << "*x";
+            os << "x";
         else
-            os << "*x^" << it->first;
+            os << "x^" << it->first;
     }
 }
