@@ -11,6 +11,7 @@
 #include <algorithm>
 #include <iterator>
 #include <functional>
+#include <sstream>
 
 class Calculator;
 class Parser;

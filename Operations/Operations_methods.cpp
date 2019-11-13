@@ -114,8 +114,7 @@ const Node& BinaryMul::getValue(const Node& polinomFirst, const Node& polinomSec
             if (fabs(resultedCoefficient) > MAX_NUMBER)
                 throw Too_Big_Number();
 
-            if (resultedCoefficient != 0)
-                resultedCoefficients[resultedDegree] += resultedCoefficient;
+            resultedCoefficients[resultedDegree] += resultedCoefficient;
         }
     }
 
@@ -189,7 +188,7 @@ const Node& BinaryPow::getValue(const Node& polinomFirst, const Node& polinomSec
     if (fabs(degree) > MAX_DEGREE)
         throw Too_Big_Degree();
 
-    if ((coefficientsFirst.size() != 1 || coefficientsSecond.begin()->first != 0))
+    if (coefficientsFirst.size() != 1 || coefficientsFirst.begin()->first != 0)
     {
         if ((long long)degree != degree || degree < 0)
             throw Invalid_Degree_Of_X();

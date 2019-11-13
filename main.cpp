@@ -1,5 +1,6 @@
 #include <iostream>
 #include <climits>
+//#include <windows.h>
 #include "Calculator.h"
 
 using namespace std;
@@ -12,8 +13,41 @@ void printMap(map_int_LD source)
 
 int main()
 {
-try
-{
+    for(;;)
+    {
+        try
+        {
+            string str;
+            getline(cin, str);
+            system("cls");
+            cout << str << endl;
+            if (str.size() == 0)
+                continue;
+
+            Parser p(str);
+            Calculator c = p.getExression();
+            cout << endl << "-----------------------------" << endl;
+            c.print(cout);
+            cout << endl << "-----------------------------" << endl;
+            const Node& r = c.getResult();
+            r.print(cout);
+            cout << endl << "=============================" << endl;
+        }
+        catch (bad_cast& e)
+        {
+            cerr << "ERROR: invalid order" << endl;
+        }
+        catch (exception& e)
+        {
+            cerr << "ERROR: " << e.what() << endl;
+        }
+        catch(...)
+        {
+            cerr << "ERROR: " << "unknown exception" << endl;
+        }
+    }
+
+
     cout.precision(10);
     const Node& pol_1 = Polinom(map_int_LD{ {0, 5.44}, {2, 3} });
     const Node& pol_2 = Polinom(map_int_LD({ {1, 5}, {2, 3} }));
@@ -41,8 +75,8 @@ try
     l.push_back(cl_br);
     l.push_back(pow);
     l.push_back(pol_4);
-    l.push_back(pow);
-    l.push_back(pol_6);
+//    l.push_back(pow);
+//    l.push_back(pol_6);
     l.push_back(div);
     l.push_back(pol_5);
 
@@ -70,19 +104,6 @@ try
 //    map_int_LD resultedMap = (dynamic_cast < const Polinom& > (resultedPolinom)).getCoefficients();
 //    printMap(resultedMap);
 
-}
-catch (bad_cast& e)
-{
-    cerr << "invalid order" << endl;
-}
-catch (exception& e)
-{
-    cerr << e.what() << endl;
-}
-catch(...)
-{
-    cerr << "unknown exception" << endl;
-}
 }
 
 
