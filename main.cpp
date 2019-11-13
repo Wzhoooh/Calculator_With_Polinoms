@@ -100,7 +100,8 @@ int main()
                 inputStr += byteFirst;
 
         else if (operations.find(byteFirst) != operations.end())
-            if ((byteFirst == '*' || byteFirst == '/') && lastSymbol == '(')
+            if ((byteFirst == '*' || byteFirst == '/') && lastSymbol == '(' ||
+                 operations.find(lastSymbol) != operations.end())
                 continue;
             else
                 inputStr += byteFirst;
