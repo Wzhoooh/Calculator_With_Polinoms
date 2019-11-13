@@ -76,8 +76,20 @@ public:
 
 class Invalid_Symbol: public exception
 {
+private:
+    std::string returnedStr;
+
 public:
-    const char* what() const throw() { return "invalid symbol"; }
+    Invalid_Symbol(char source)
+    {
+        std::string symb;
+        symb = source;
+        returnedStr = "invalid symbol \"" + symb + "\"";
+    }
+    const char* what() const throw()
+    {
+        return (returnedStr.c_str());
+    }
 };
 
 #endif // EXCEPTIONS_H_INCLUDED

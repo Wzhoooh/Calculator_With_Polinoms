@@ -11,10 +11,13 @@ Polinom::Polinom(const map_int_LD coefficients)
 
     // we are deleting elements with zero coefficients
     for (map_int_LD::iterator i = this->coefficients.begin(); i != this->coefficients.end();)
-        if (i->first != 0 && i->second == 0)
+        if (i->second == 0)
             this->coefficients.erase(i++);
         else
             ++i;
+
+    if (this->coefficients.size() == 0)
+        this->coefficients.insert( {0, 0} );
 }
 
 const Node& Polinom::getValue() const

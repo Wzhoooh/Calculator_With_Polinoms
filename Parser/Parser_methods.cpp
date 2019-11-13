@@ -58,7 +58,7 @@ Parser::Parser(const std::string& inputStr)
             expression.push_back( *(new Bracket(false)) );
         }
         else
-            throw Invalid_Symbol();
+            throw Invalid_Symbol(element);
     }
 }
 

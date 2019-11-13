@@ -55,9 +55,7 @@ const Node& BinaryAdd::getValue(const Node& polinomFirst, const Node& polinomSec
 
     for (map_int_LD::iterator itSecond = coefficientsSecond.begin(); itSecond != coefficientsSecond.end(); itSecond++)
     {
-        if (resultedCoefficients[itSecond->first] + itSecond->second != 0)
-            resultedCoefficients[itSecond->first] += itSecond->second;
-        else resultedCoefficients[itSecond->first] = 0;
+        resultedCoefficients[itSecond->first] += itSecond->second;
     }
 
     return *(new Polinom(resultedCoefficients));
