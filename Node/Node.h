@@ -6,8 +6,8 @@
 class Node
 {
 public:
-    static constexpr long double MAX_NUMBER = 1e18;
-    static constexpr long double MAX_DEGREE = 10000;
+    static constexpr long double MAX_NUMBER = 1e99;
+    static constexpr long double MAX_DEGREE = 1e10;
     static constexpr long double  PRECISION = 1e-20;
     static constexpr int MAX_PRIORITY = 100;
 

@@ -19,6 +19,7 @@ public:
 
     map_int_LD getCoefficients() const; /// copies coefficients
     void print(std::ostream& os) const;
+    void getStrValue(std::string&) const;
 };
 
 #endif // POLINOM_H_INCLUDED

@@ -1,109 +1,142 @@
 #include <iostream>
 #include <climits>
+#include <set>
 //#include <windows.h>
+#include <conio.h>
 #include "Calculator.h"
 
 using namespace std;
 
-void printMap(map_int_LD source)
-{
-    for (auto i : source)
-        cout << i.first << " " << i.second << endl;
-}
-
 int main()
 {
-    for(;;)
+    unsigned char byteFirst  = 0;
+    unsigned char byteSecond = 0;
+    string inputStr;
+    string result;
+    int bracketsState = 0;
+    char lastSymbol = 0;
+    bool enterPressed = false;
+    set < char > rightSymbols{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+    '+', '-', '*', '/', '^', '.', '=', '(', ')', 'x'};
+
+    set < char > operations{'+', '-', '*', '/', '^'};
+
+    for (;;)
     {
+        if (inputStr.size() > 0)
+            lastSymbol = inputStr[inputStr.size()-1];
+        else
+            lastSymbol = 0;
+
+        byteFirst  = 0;
+        byteSecond = 0;
+        system("cls");
+        cout << inputStr << endl;
+        cout << "-----" << endl;
+        cout << "Result: ";
+
         try
         {
-            string str;
-            getline(cin, str);
-            system("cls");
-            cout << str << endl;
-            if (str.size() == 0)
-                continue;
-
-            Parser p(str);
+            Parser p(inputStr);
             Calculator c = p.getExression();
-            cout << endl << "-----------------------------" << endl;
-            c.print(cout);
-            cout << endl << "-----------------------------" << endl;
-            const Node& r = c.getResult();
-            r.print(cout);
-            cout << endl << "=============================" << endl;
+            if (enterPressed)
+            {
+                enterPressed = false;
+                const Node& r = c.getResult();
+                r.print(cout);
+            }
         }
         catch (bad_cast& e)
         {
-            cerr << "ERROR: invalid order" << endl;
+            cerr << "invalid order" << endl;
         }
         catch (exception& e)
         {
-            cerr << "ERROR: " << e.what() << endl;
+            cerr << "" << e.what() << endl;
         }
         catch(...)
         {
-            cerr << "ERROR: " << "unknown exception" << endl;
+            cerr << "" << "unknown exception" << endl;
         }
+
+        byteFirst = getch();
+        if (byteFirst == 224)
+            byteSecond = getch();
+        else
+            byteSecond = 0;
+
+        if (byteFirst == 27) /// escape
+            return 0;
+
+        else if (byteFirst == 13) /// enter
+            enterPressed = true;
+
+        else if (byteFirst == 8) /// backspace
+        {
+            if (inputStr.size() == 0)
+                continue;
+            if (lastSymbol == ')')
+                bracketsState++;
+            if (lastSymbol == '(')
+                bracketsState--;
+            inputStr.resize(inputStr.size()-1);
+        }
+
+        else if (byteFirst == 127) /// ctrl+backspace
+        {
+            inputStr.clear();
+        }
+
+        else if (rightSymbols.find(byteFirst) == rightSymbols.end())
+            continue;
+
+        else if (byteFirst >= '0' && byteFirst <= '9' || byteFirst == '.')
+            if (lastSymbol == ')' || lastSymbol == 'x')
+            {
+                inputStr += '*' ;
+                inputStr +=  byteFirst;
+            }
+            else
+                inputStr += byteFirst;
+
+        else if (operations.find(byteFirst) != operations.end())
+            if ((byteFirst == '*' || byteFirst == '/') && lastSymbol == '(')
+                continue;
+            else
+                inputStr += byteFirst;
+
+        else if (byteFirst == 'x')
+            if (lastSymbol >= '0' && lastSymbol <= '9' || lastSymbol == ')' || lastSymbol == 'x')
+            {
+                inputStr += '*' ;
+                inputStr +=  byteFirst;
+            }
+            else
+                inputStr += byteFirst;
+
+        else if (byteFirst == ' ')
+            inputStr += byteFirst;
+
+        else if (byteFirst == '(')
+            if (lastSymbol >= '0' && lastSymbol <= '9' || lastSymbol == ')' || lastSymbol == 'x')
+            {
+                inputStr += '*';
+                inputStr += byteFirst;
+                bracketsState++;
+            }
+            else
+            {
+                inputStr += byteFirst;
+                bracketsState++;
+            }
+
+        else if (byteFirst == ')')
+            if (bracketsState)
+            {
+                inputStr += byteFirst;
+                bracketsState--;
+            }
     }
-
-
-    cout.precision(10);
-    const Node& pol_1 = Polinom(map_int_LD{ {0, 5.44}, {2, 3} });
-    const Node& pol_2 = Polinom(map_int_LD({ {1, 5}, {2, 3} }));
-    const Node& pol_3 = Polinom(map_int_LD({ {0, 5}, {2, 3} }));
-    const Node& pol_4 = Polinom(map_int_LD({ {0, 7} }));
-    const Node& pol_5 = Polinom(map_int_LD({ {0, 2} }));
-    const Node& pol_6 = Polinom(map_int_LD({ {0, -0.5} }));
-
-    const Node& add = BinaryAdd();
-    const Node& minus = UnaryMinus();
-    const Node& mul = BinaryMul();
-    const Node& div = BinaryDiv();
-    const Node& pow = BinaryPow();
-    const Node& op_br = Bracket(true);
-    const Node& cl_br = Bracket(false);
-
-    list_node l;
-    l.push_back(pol_3);
-    l.push_back(mul);
-    l.push_back(minus);
-    l.push_back(op_br);
-    l.push_back(pol_1);
-    l.push_back(add);
-    l.push_back(pol_2);
-    l.push_back(cl_br);
-    l.push_back(pow);
-    l.push_back(pol_4);
-//    l.push_back(pow);
-//    l.push_back(pol_6);
-    l.push_back(div);
-    l.push_back(pol_5);
-
-    Calculator c(l);
-    cout << endl << "-----------------------------" << endl;
-    c.print(cout);
-    cout << endl << "-----------------------------" << endl;
-    const Node& r = c.getResult();
-    r.print(cout);
-    return 0;
-
-//    const NodeTwoArguments& oper = BinarySub();
-//    const NodeTwoArguments& oper = BinaryAdd();
-//    const NodeTwoArguments& oper = BinaryMul();
-//    const NodeTwoArguments& oper = BinaryDiv();
-    const NodeTwoArguments& oper = BinaryPow();
-
-    oper.print(cout);
-    cout << endl << "-----------------------------" << endl;
-    const Polinom& resultedPolinom = dynamic_cast < const Polinom& > (oper.getValue(pol_1, pol_2));
-
-    resultedPolinom.print(cout);
-    cout << endl;
-
-//    map_int_LD resultedMap = (dynamic_cast < const Polinom& > (resultedPolinom)).getCoefficients();
-//    printMap(resultedMap);
-
 }
 
 

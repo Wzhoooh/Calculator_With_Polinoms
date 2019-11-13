@@ -41,7 +41,7 @@ public:
 class Invalid_Degree_Of_X: public exception
 {
 public:
-    const char* what() const throw() { return "invalid X degree"; }
+    const char* what() const throw() { return "invalid degree"; }
 };
 
 class X_In_Degree: public exception

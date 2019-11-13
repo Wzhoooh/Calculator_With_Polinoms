@@ -70,3 +70,30 @@ void Polinom::print(std::ostream& os) const
             os << "x^" << it->first;
     }
 }
+
+void Polinom::getStrValue(std::string& source) const
+{
+    std::stringstream ss;
+    for (auto it = coefficients.rbegin(); it != coefficients.rend(); it++)
+    {
+        if (it->second < 0)
+            ss << " - ";
+        else
+            if (it != coefficients.rbegin())
+                ss << " + ";
+
+        if (it->first == 0)
+            ss << fabs(it->second);
+
+        else if (fabs(it->second) != 1)
+            ss << fabs(it->second) << "*";
+
+        if (it->first == 0)
+            ;
+        else if (it->first == 1)
+            ss << "x";
+        else
+            ss << "x^" << it->first;
+    }
+    source = ss.str();
+}

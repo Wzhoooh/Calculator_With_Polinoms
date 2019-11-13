@@ -57,6 +57,11 @@ Parser::Parser(const std::string& inputStr)
         {
             expression.push_back( *(new Bracket(false)) );
         }
+        else if (element == ' ' || (element == '=' && i == inputStr.size()-1))
+        {
+            continue;
+        }
+
         else
             throw Invalid_Symbol(element);
     }
