@@ -9,6 +9,7 @@ using namespace std;
 
 int main()
 {
+    const int ESC = 27;
     unsigned char byteFirst  = 0;
     unsigned char byteSecond = 0;
     string inputStr;
@@ -65,7 +66,7 @@ int main()
         else
             byteSecond = 0;
 
-        if (byteFirst == 27) /// escape
+        if (byteFirst == ESC) /// escape
             return 0;
 
         else if (byteFirst == 13) /// enter
