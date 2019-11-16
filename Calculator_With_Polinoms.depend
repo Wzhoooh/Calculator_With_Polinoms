@@ -1,0 +1,72 @@
+# depslib dependency file v1.0
+1573568714 source:c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\brackets\brackets_methods.cpp
+	"Brackets.h"
+
+1573568685 c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\brackets\brackets.h
+	"../Node/Node.h"
+
+1573660375 c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\node\node.h
+	"../def/def.h"
+
+1573641206 c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\def\def.h
+	<iostream>
+	<string>
+	<vector>
+	<list>
+	<map>
+	<stack>
+	<utility>
+	<algorithm>
+	<iterator>
+	<functional>
+	<sstream>
+
+1573588247 source:c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\calculator_methods.cpp
+	"Calculator.h"
+
+1573588247 c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\calculator.h
+	"def/def.h"
+	"Exceptions/Exceptions.h"
+	"Node/Node.h"
+	"Polinom/Polinom.h"
+	"Operations/Operations.h"
+	"Brackets/Brackets.h"
+	"Parser/Parser.h"
+
+1573658537 c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\exceptions\exceptions.h
+	<exception>
+	<typeinfo>
+
+1573655931 c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\polinom\polinom.h
+	"../Node/Node.h"
+
+1573588247 c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\operations\operations.h
+	"../Polinom/Polinom.h"
+	"../Exceptions/Exceptions.h"
+
+1573641318 c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\parser\parser.h
+	"../def/def.h"
+	"../Exceptions/Exceptions.h"
+	"../Node/Node.h"
+	"../Polinom/Polinom.h"
+	"../Operations/Operations.h"
+	"../Brackets/Brackets.h"
+
+1573709121 source:c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\main.cpp
+	<iostream>
+	<climits>
+	<set>
+	<conio.h>
+	"Calculator.h"
+
+1573645813 source:c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\operations\operations_methods.cpp
+	"Operations.h"
+	<iostream>
+	<cstdlib>
+
+1573653025 source:c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\parser\parser_methods.cpp
+	"Parser.h"
+
+1573656175 source:c:\users\alex\desktop\vuz\prog\calculator_wth_tranformations\polinom\polinom_methods.cpp
+	"Polinom.h"
+
