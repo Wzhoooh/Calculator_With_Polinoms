@@ -1,4 +1,4 @@
-# Calculator_wth_tranformations
+# Calculator_With_Polinoms
 You can calculate numbers and expressions with X
 
 Buttons:
